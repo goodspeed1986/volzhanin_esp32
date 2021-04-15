@@ -19,7 +19,6 @@ void  fclose(void *);
 double  floor(double);
 double  fmax(double, double);
 double  fmin(double, double);
-char * foo(struct mg_str *);
 void * fopen(char *, char *);
 int  fread(char *, int, int, void *);
 void  free(void *);
@@ -34,16 +33,6 @@ bool  mg_rpc_send_errorf(void *, int, char *, char *);
 void  mg_send(void *, void *, int);
 void  mg_set_protocol_http_websocket(void *);
 double  mg_time(void);
-void  mgos_ADS1015_begin(void *);
-void  mgos_ADS1015_close(void *);
-void * mgos_ADS1015_create(int);
-int  mgos_ADS1015_getLastConversionResults(void *);
-int  mgos_ADS1015_readADC_Differential_0_1(void *);
-int  mgos_ADS1015_readADC_Differential_2_3(void *);
-int  mgos_ADS1015_readADC_SingleEnded(void *,int);
-void  mgos_ADS1015_setGain(void *, int);
-void  mgos_ADS1015_startComparator_SingleEnded(void *, int, int );
-void * mgos_ADS1115_create(int);
 void  mgos_arduino_onewire_close(void *);
 int  mgos_arduino_onewire_crc8(void *, char *, int);
 void * mgos_arduino_onewire_create(int);
@@ -181,7 +170,6 @@ double  round(double);
 double  sin(double);
 double  sqrt(double);
 void * strdup(char *);
-double  sum(double, double);
 int  temprature_sens_read(void);
 
 const struct mgos_ffi_export ffi_exports[] = {
@@ -195,7 +183,6 @@ const struct mgos_ffi_export ffi_exports[] = {
   {"floor", floor},
   {"fmax", fmax},
   {"fmin", fmin},
-  {"foo", foo},
   {"fopen", fopen},
   {"fread", fread},
   {"free", free},
@@ -210,16 +197,6 @@ const struct mgos_ffi_export ffi_exports[] = {
   {"mg_send", mg_send},
   {"mg_set_protocol_http_websocket", mg_set_protocol_http_websocket},
   {"mg_time", mg_time},
-  {"mgos_ADS1015_begin", mgos_ADS1015_begin},
-  {"mgos_ADS1015_close", mgos_ADS1015_close},
-  {"mgos_ADS1015_create", mgos_ADS1015_create},
-  {"mgos_ADS1015_getLastConversionResults", mgos_ADS1015_getLastConversionResults},
-  {"mgos_ADS1015_readADC_Differential_0_1", mgos_ADS1015_readADC_Differential_0_1},
-  {"mgos_ADS1015_readADC_Differential_2_3", mgos_ADS1015_readADC_Differential_2_3},
-  {"mgos_ADS1015_readADC_SingleEnded", mgos_ADS1015_readADC_SingleEnded},
-  {"mgos_ADS1015_setGain", mgos_ADS1015_setGain},
-  {"mgos_ADS1015_startComparator_SingleEnded", mgos_ADS1015_startComparator_SingleEnded},
-  {"mgos_ADS1115_create", mgos_ADS1115_create},
   {"mgos_arduino_onewire_close", mgos_arduino_onewire_close},
   {"mgos_arduino_onewire_crc8", mgos_arduino_onewire_crc8},
   {"mgos_arduino_onewire_create", mgos_arduino_onewire_create},
@@ -357,7 +334,6 @@ const struct mgos_ffi_export ffi_exports[] = {
   {"sin", sin},
   {"sqrt", sqrt},
   {"strdup", strdup},
-  {"sum", sum},
   {"temprature_sens_read", temprature_sens_read},
 };
-const int ffi_exports_cnt = 174;
+const int ffi_exports_cnt = 162;

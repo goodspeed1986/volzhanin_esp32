@@ -54,17 +54,19 @@ libs:
   - origin: https://github.com/mongoose-os-libs/rpc-uart
   - origin: https://github.com/mongoose-os-libs/wifi
   - origin: https://github.com/mongoose-os-libs/mjs  # <-- Add this line!
-  - origin: https://github.com/mongoose-os-libs/arduino-adafruit-ads1x15
+  #- origin: https://github.com/mongoose-os-libs/arduino-adafruit-ads1x15
   - origin: https://github.com/mongoose-os-libs/arduino-onewire
   - origin: https://github.com/mongoose-os-libs/core
   - origin: https://github.com/mongoose-os-libs/pwm
   - origin: https://github.com/mongoose-os-libs/boards
   - origin: https://github.com/mongoose-os-libs/ota-http-server
+  - origin: https://github.com/mongoose-os-libs/i2c
 config_schema:
   # bt:
   - ["bt.random_address", false] # Настройки bluetooth
+  - ["bt.keep_enabled", true]
   - ["i2c.enable", true]
-  - ["debug.level", 3 ]
+  - ["debug.level", 2 ]
   - ["wifi.sta.enable", true]
   - ["wifi.sta.ssid", "ASUS"]
   - ["wifi.sta.pass", "bmns1xA8"]

@@ -18,7 +18,7 @@
 #include "mgos.h"
 #include <stdio.h>
 #include <string.h>
-#include "common/mg_str.h"
+//#include "common/mg_str.h"
 
 
 static void timer_cb(void *arg) {
@@ -38,10 +38,12 @@ enum mgos_app_init_result mgos_app_init(void) {
 #ifdef LED_PIN
   mgos_gpio_setup_output(LED_PIN, 0);
 #endif
-  mgos_set_timer(10000 /* ms */, MGOS_TIMER_REPEAT, timer_cb, NULL);
+  mgos_set_timer(10000 , MGOS_TIMER_REPEAT, timer_cb, NULL);
   return MGOS_APP_INIT_SUCCESS;
 }
 
+
+/*
 double sum (double a, double b) {
   return a + b;
 }
@@ -76,7 +78,7 @@ const char *foo(struct mg_str *data) {
   return hex_str;
 }
 
-/*const char *foo1(struct mg_str *data, int offset, int mtu) {
+const char *foo1(struct mg_str *data, int offset, int mtu) {
   size_t len = data->len;
   char *arr = malloc(len-offset);
   if (len < offset) {
@@ -88,13 +90,13 @@ const char *foo(struct mg_str *data) {
   memcpy(arr, data->p+offset, len);
   free(arr);
   return 
-}*/
+}
 
 const char *allocStr(int size) {
   char *arr = (char*)malloc(size);
   return arr;
 }
-
+*/
 /*void *my_dlsym(void *handle, const char *name) {
   if (strcmp(name, "foo") == 0) return foo;
   return NULL;

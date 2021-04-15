@@ -16,14 +16,12 @@ extern bool mgos_vfs_fs_lfs_init(void);
 extern bool mgos_vfs_fs_spiffs_init(void);
 extern bool mgos_core_init(void);
 extern bool mgos_arduino_compat_init(void);
-extern bool mgos_i2c_init(void);
-extern bool mgos_arduino_wire_init(void);
-extern bool mgos_arduino_adafruit_ads1x15_init(void);
 extern bool mgos_onewire_init(void);
 extern bool mgos_arduino_onewire_init(void);
 extern bool mgos_bt_common_init(void);
 extern bool mgos_wifi_init(void);
 extern bool mgos_http_server_init(void);
+extern bool mgos_i2c_init(void);
 extern bool mgos_mbedtls_init(void);
 extern bool mgos_mjs_init(void);
 extern bool mgos_ota_http_client_init(void);
@@ -57,7 +55,7 @@ const struct mgos_lib_info mgos_libs_info[] = {
     {.name = "vfs-common", .version = "1.0", .init = mgos_vfs_common_init},
 
     // "vfs-fs-lfs". deps: [ "vfs-common" ]
-    {.name = "vfs-fs-lfs", .version = "2.2.0", .init = mgos_vfs_fs_lfs_init},
+    {.name = "vfs-fs-lfs", .version = "2.4.0", .init = mgos_vfs_fs_lfs_init},
 
     // "vfs-fs-spiffs". deps: [ "vfs-common" ]
     {.name = "vfs-fs-spiffs", .version = "1.0", .init = mgos_vfs_fs_spiffs_init},
@@ -67,15 +65,6 @@ const struct mgos_lib_info mgos_libs_info[] = {
 
     // "arduino-compat". deps: [ "core" ]
     {.name = "arduino-compat", .version = "1.0", .init = mgos_arduino_compat_init},
-
-    // "i2c". deps: [ "core" ]
-    {.name = "i2c", .version = "1.0", .init = mgos_i2c_init},
-
-    // "arduino-wire". deps: [ "arduino-compat" "core" "i2c" ]
-    {.name = "arduino-wire", .version = "1.0", .init = mgos_arduino_wire_init},
-
-    // "arduino-adafruit-ads1x15". deps: [ "arduino-compat" "arduino-wire" "core" ]
-    {.name = "arduino-adafruit-ads1x15", .version = "1.0", .init = mgos_arduino_adafruit_ads1x15_init},
 
     // "onewire". deps: [ "core" ]
     {.name = "onewire", .version = "1.0", .init = mgos_onewire_init},
@@ -92,6 +81,9 @@ const struct mgos_lib_info mgos_libs_info[] = {
     // "http-server". deps: [ "core" "wifi" ]
     {.name = "http-server", .version = "1.0", .init = mgos_http_server_init},
 
+    // "i2c". deps: [ "core" ]
+    {.name = "i2c", .version = "1.0", .init = mgos_i2c_init},
+
     // "mbedtls". deps: [ ]
     {.name = "mbedtls", .version = "2.16.6-cesanta1", .init = mgos_mbedtls_init},
 
@@ -99,7 +91,7 @@ const struct mgos_lib_info mgos_libs_info[] = {
     {.name = "mjs", .version = "1.0", .init = mgos_mjs_init},
 
     // "ota-http-client". deps: [ "core" "ota-common" ]
-    {.name = "ota-http-client", .version = "1.0", .init = mgos_ota_http_client_init},
+    {.name = "ota-http-client", .version = "1.0.1", .init = mgos_ota_http_client_init},
 
     // "ota-http-server". deps: [ "core" "http-server" "ota-common" "ota-http-client" ]
     {.name = "ota-http-server", .version = "1.0", .init = mgos_ota_http_server_init},
