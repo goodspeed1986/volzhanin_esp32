@@ -174,7 +174,10 @@ Timer.set(1000, Timer.REPEAT, function () {
   if (subscriber) {
     let se = subscriber;
     //let mtu = "MTU" + se.c.mtu;
-    let notifyStr = JSON.stringify(welding.state) + ";" + JSON.stringify(welding.error) + ";" + Number2String(welding.pressure) + ";" + Number2String(welding.bat_voltage);
+    //NOTIFY CURRENT STATE, PARAMS
+    //1;0;23.5;4.2;12.1
+    let notifyStr = JSON.stringify(welding.state) + ";" + JSON.stringify(welding.error) + ";";
+    notifyStr = notifyStr + Number2String(welding.pressure) + ";" + Number2String(welding.bat_voltage) + Number2String(welding.temperature);
     GATTS.notify(se.c, se.mode, se.handle, notifyStr);
   }
 }, null);
