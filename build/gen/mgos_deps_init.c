@@ -55,7 +55,7 @@ const struct mgos_lib_info mgos_libs_info[] = {
     {.name = "vfs-common", .version = "1.0", .init = mgos_vfs_common_init},
 
     // "vfs-fs-lfs". deps: [ "vfs-common" ]
-    {.name = "vfs-fs-lfs", .version = "2.4.0", .init = mgos_vfs_fs_lfs_init},
+    {.name = "vfs-fs-lfs", .version = "2.2.0", .init = mgos_vfs_fs_lfs_init},
 
     // "vfs-fs-spiffs". deps: [ "vfs-common" ]
     {.name = "vfs-fs-spiffs", .version = "1.0", .init = mgos_vfs_fs_spiffs_init},
@@ -91,7 +91,7 @@ const struct mgos_lib_info mgos_libs_info[] = {
     {.name = "mjs", .version = "1.0", .init = mgos_mjs_init},
 
     // "ota-http-client". deps: [ "core" "ota-common" ]
-    {.name = "ota-http-client", .version = "1.0.1", .init = mgos_ota_http_client_init},
+    {.name = "ota-http-client", .version = "1.0", .init = mgos_ota_http_client_init},
 
     // "ota-http-server". deps: [ "core" "http-server" "ota-common" "ota-http-client" ]
     {.name = "ota-http-server", .version = "1.0", .init = mgos_ota_http_server_init},

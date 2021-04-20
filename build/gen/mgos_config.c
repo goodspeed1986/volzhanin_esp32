@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/latest/apps/Volzhanin/esp32/build_contexts/build_ctx_303321544/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/latest/apps/Volzhanin/esp32/build_contexts/build_ctx_303321544/build/gen/mos_conf_schema.yml
+ * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.19.1/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_272508375/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/2.19.1/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_272508375/build/gen/mos_conf_schema.yml
  */
 
 #include "mgos_config.h"
@@ -13,7 +13,7 @@
 
 /* struct mgos_config */
 static const struct mgos_conf_entry mgos_config_schema_[] = {
-    {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 181},
+    {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 179},
     {.type = CONF_TYPE_OBJECT, .key = "debug", .offset = offsetof(struct mgos_config, debug), .num_desc = 10},
     {.type = CONF_TYPE_STRING, .key = "udp_log_addr", .offset = offsetof(struct mgos_config, debug.udp_log_addr)},
     {.type = CONF_TYPE_INT, .key = "udp_log_level", .offset = offsetof(struct mgos_config, debug.udp_log_level)},
@@ -65,7 +65,7 @@ static const struct mgos_conf_entry mgos_config_schema_[] = {
     {.type = CONF_TYPE_INT, .key = "scl_gpio", .offset = offsetof(struct mgos_config, i2c1.scl_gpio)},
     {.type = CONF_TYPE_OBJECT, .key = "mjs", .offset = offsetof(struct mgos_config, mjs), .num_desc = 1},
     {.type = CONF_TYPE_BOOL, .key = "generate_jsc", .offset = offsetof(struct mgos_config, mjs.generate_jsc)},
-    {.type = CONF_TYPE_OBJECT, .key = "http", .offset = offsetof(struct mgos_config, http), .num_desc = 13},
+    {.type = CONF_TYPE_OBJECT, .key = "http", .offset = offsetof(struct mgos_config, http), .num_desc = 12},
     {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, http.enable)},
     {.type = CONF_TYPE_STRING, .key = "listen_addr", .offset = offsetof(struct mgos_config, http.listen_addr)},
     {.type = CONF_TYPE_STRING, .key = "document_root", .offset = offsetof(struct mgos_config, http.document_root)},
@@ -77,7 +77,6 @@ static const struct mgos_conf_entry mgos_config_schema_[] = {
     {.type = CONF_TYPE_STRING, .key = "hidden_files", .offset = offsetof(struct mgos_config, http.hidden_files)},
     {.type = CONF_TYPE_STRING, .key = "auth_domain", .offset = offsetof(struct mgos_config, http.auth_domain)},
     {.type = CONF_TYPE_STRING, .key = "auth_file", .offset = offsetof(struct mgos_config, http.auth_file)},
-    {.type = CONF_TYPE_INT, .key = "auth_algo", .offset = offsetof(struct mgos_config, http.auth_algo)},
     {.type = CONF_TYPE_STRING, .key = "extra_headers", .offset = offsetof(struct mgos_config, http.extra_headers)},
     {.type = CONF_TYPE_OBJECT, .key = "update", .offset = offsetof(struct mgos_config, update), .num_desc = 9},
     {.type = CONF_TYPE_INT, .key = "timeout", .offset = offsetof(struct mgos_config, update.timeout)},
@@ -89,7 +88,7 @@ static const struct mgos_conf_entry mgos_config_schema_[] = {
     {.type = CONF_TYPE_STRING, .key = "ssl_client_cert_file", .offset = offsetof(struct mgos_config, update.ssl_client_cert_file)},
     {.type = CONF_TYPE_STRING, .key = "ssl_server_name", .offset = offsetof(struct mgos_config, update.ssl_server_name)},
     {.type = CONF_TYPE_BOOL, .key = "enable_post", .offset = offsetof(struct mgos_config, update.enable_post)},
-    {.type = CONF_TYPE_OBJECT, .key = "rpc", .offset = offsetof(struct mgos_config, rpc), .num_desc = 15},
+    {.type = CONF_TYPE_OBJECT, .key = "rpc", .offset = offsetof(struct mgos_config, rpc), .num_desc = 14},
     {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, rpc.enable)},
     {.type = CONF_TYPE_BOOL, .key = "http_enable", .offset = offsetof(struct mgos_config, rpc.http_enable)},
     {.type = CONF_TYPE_BOOL, .key = "service_sys_enable", .offset = offsetof(struct mgos_config, rpc.service_sys_enable)},
@@ -99,7 +98,6 @@ static const struct mgos_conf_entry mgos_config_schema_[] = {
     {.type = CONF_TYPE_STRING, .key = "acl_file", .offset = offsetof(struct mgos_config, rpc.acl_file)},
     {.type = CONF_TYPE_STRING, .key = "auth_domain", .offset = offsetof(struct mgos_config, rpc.auth_domain)},
     {.type = CONF_TYPE_STRING, .key = "auth_file", .offset = offsetof(struct mgos_config, rpc.auth_file)},
-    {.type = CONF_TYPE_INT, .key = "auth_algo", .offset = offsetof(struct mgos_config, rpc.auth_algo)},
     {.type = CONF_TYPE_OBJECT, .key = "uart", .offset = offsetof(struct mgos_config, rpc.uart), .num_desc = 4},
     {.type = CONF_TYPE_INT, .key = "uart_no", .offset = offsetof(struct mgos_config, rpc.uart.uart_no)},
     {.type = CONF_TYPE_INT, .key = "baud_rate", .offset = offsetof(struct mgos_config, rpc.uart.baud_rate)},
@@ -321,13 +319,12 @@ void mgos_config_http_set_defaults(struct mgos_config_http *cfg) {
   cfg->hidden_files = NULL;
   cfg->auth_domain = NULL;
   cfg->auth_file = NULL;
-  cfg->auth_algo = 0;
   cfg->extra_headers = NULL;
 }
 
 /* struct mgos_config_update */
 const struct mgos_conf_entry *mgos_config_update_get_schema(void) {
-  return &mgos_config_schema_[66];
+  return &mgos_config_schema_[65];
 }
 
 void mgos_config_update_set_defaults(struct mgos_config_update *cfg) {
@@ -344,7 +341,7 @@ void mgos_config_update_set_defaults(struct mgos_config_update *cfg) {
 
 /* struct mgos_config_rpc_uart */
 const struct mgos_conf_entry *mgos_config_rpc_uart_get_schema(void) {
-  return &mgos_config_schema_[87];
+  return &mgos_config_schema_[85];
 }
 
 void mgos_config_rpc_uart_set_defaults(struct mgos_config_rpc_uart *cfg) {
@@ -356,7 +353,7 @@ void mgos_config_rpc_uart_set_defaults(struct mgos_config_rpc_uart *cfg) {
 
 /* struct mgos_config_rpc */
 const struct mgos_conf_entry *mgos_config_rpc_get_schema(void) {
-  return &mgos_config_schema_[76];
+  return &mgos_config_schema_[75];
 }
 
 void mgos_config_rpc_set_defaults(struct mgos_config_rpc *cfg) {
@@ -369,13 +366,12 @@ void mgos_config_rpc_set_defaults(struct mgos_config_rpc *cfg) {
   cfg->acl_file = NULL;
   cfg->auth_domain = "RPC";
   cfg->auth_file = NULL;
-  cfg->auth_algo = 0;
   mgos_config_rpc_uart_set_defaults(&cfg->uart);
 }
 
 /* struct mgos_config_wifi_ap */
 const struct mgos_conf_entry *mgos_config_wifi_ap_get_schema(void) {
-  return &mgos_config_schema_[93];
+  return &mgos_config_schema_[91];
 }
 
 void mgos_config_wifi_ap_set_defaults(struct mgos_config_wifi_ap *cfg) {
@@ -400,13 +396,13 @@ void mgos_config_wifi_ap_set_defaults(struct mgos_config_wifi_ap *cfg) {
 
 /* struct mgos_config_wifi_sta */
 const struct mgos_conf_entry *mgos_config_wifi_sta_get_schema(void) {
-  return &mgos_config_schema_[143];
+  return &mgos_config_schema_[141];
 }
 
 void mgos_config_wifi_sta_set_defaults(struct mgos_config_wifi_sta *cfg) {
-  cfg->enable = true;
-  cfg->ssid = "ASUS";
-  cfg->pass = "bmns1xA8";
+  cfg->enable = false;
+  cfg->ssid = NULL;
+  cfg->pass = NULL;
   cfg->user = NULL;
   cfg->anon_identity = NULL;
   cfg->cert = NULL;
@@ -423,13 +419,13 @@ void mgos_config_wifi_sta_set_defaults(struct mgos_config_wifi_sta *cfg) {
 
 /* struct mgos_config_wifi_sta */
 const struct mgos_conf_entry *mgos_config_wifi_sta1_get_schema(void) {
-  return &mgos_config_schema_[143];
+  return &mgos_config_schema_[141];
 }
 
 void mgos_config_wifi_sta1_set_defaults(struct mgos_config_wifi_sta *cfg) {
   cfg->enable = false;
-  cfg->ssid = "ASUS";
-  cfg->pass = "bmns1xA8";
+  cfg->ssid = NULL;
+  cfg->pass = NULL;
   cfg->user = NULL;
   cfg->anon_identity = NULL;
   cfg->cert = NULL;
@@ -446,13 +442,13 @@ void mgos_config_wifi_sta1_set_defaults(struct mgos_config_wifi_sta *cfg) {
 
 /* struct mgos_config_wifi_sta */
 const struct mgos_conf_entry *mgos_config_wifi_sta2_get_schema(void) {
-  return &mgos_config_schema_[143];
+  return &mgos_config_schema_[141];
 }
 
 void mgos_config_wifi_sta2_set_defaults(struct mgos_config_wifi_sta *cfg) {
   cfg->enable = false;
-  cfg->ssid = "ASUS";
-  cfg->pass = "bmns1xA8";
+  cfg->ssid = NULL;
+  cfg->pass = NULL;
   cfg->user = NULL;
   cfg->anon_identity = NULL;
   cfg->cert = NULL;
@@ -469,7 +465,7 @@ void mgos_config_wifi_sta2_set_defaults(struct mgos_config_wifi_sta *cfg) {
 
 /* struct mgos_config_wifi */
 const struct mgos_conf_entry *mgos_config_wifi_get_schema(void) {
-  return &mgos_config_schema_[92];
+  return &mgos_config_schema_[90];
 }
 
 void mgos_config_wifi_set_defaults(struct mgos_config_wifi *cfg) {
@@ -485,7 +481,7 @@ void mgos_config_wifi_set_defaults(struct mgos_config_wifi *cfg) {
 
 /* struct mgos_config_board_led1 */
 const struct mgos_conf_entry *mgos_config_board_led1_get_schema(void) {
-  return &mgos_config_schema_[164];
+  return &mgos_config_schema_[162];
 }
 
 void mgos_config_board_led1_set_defaults(struct mgos_config_board_led1 *cfg) {
@@ -495,7 +491,7 @@ void mgos_config_board_led1_set_defaults(struct mgos_config_board_led1 *cfg) {
 
 /* struct mgos_config_board_led2 */
 const struct mgos_conf_entry *mgos_config_board_led2_get_schema(void) {
-  return &mgos_config_schema_[167];
+  return &mgos_config_schema_[165];
 }
 
 void mgos_config_board_led2_set_defaults(struct mgos_config_board_led2 *cfg) {
@@ -505,7 +501,7 @@ void mgos_config_board_led2_set_defaults(struct mgos_config_board_led2 *cfg) {
 
 /* struct mgos_config_board_led3 */
 const struct mgos_conf_entry *mgos_config_board_led3_get_schema(void) {
-  return &mgos_config_schema_[170];
+  return &mgos_config_schema_[168];
 }
 
 void mgos_config_board_led3_set_defaults(struct mgos_config_board_led3 *cfg) {
@@ -515,7 +511,7 @@ void mgos_config_board_led3_set_defaults(struct mgos_config_board_led3 *cfg) {
 
 /* struct mgos_config_board_btn1 */
 const struct mgos_conf_entry *mgos_config_board_btn1_get_schema(void) {
-  return &mgos_config_schema_[173];
+  return &mgos_config_schema_[171];
 }
 
 void mgos_config_board_btn1_set_defaults(struct mgos_config_board_btn1 *cfg) {
@@ -525,7 +521,7 @@ void mgos_config_board_btn1_set_defaults(struct mgos_config_board_btn1 *cfg) {
 
 /* struct mgos_config_board_btn2 */
 const struct mgos_conf_entry *mgos_config_board_btn2_get_schema(void) {
-  return &mgos_config_schema_[176];
+  return &mgos_config_schema_[174];
 }
 
 void mgos_config_board_btn2_set_defaults(struct mgos_config_board_btn2 *cfg) {
@@ -535,7 +531,7 @@ void mgos_config_board_btn2_set_defaults(struct mgos_config_board_btn2 *cfg) {
 
 /* struct mgos_config_board_btn3 */
 const struct mgos_conf_entry *mgos_config_board_btn3_get_schema(void) {
-  return &mgos_config_schema_[179];
+  return &mgos_config_schema_[177];
 }
 
 void mgos_config_board_btn3_set_defaults(struct mgos_config_board_btn3 *cfg) {
@@ -545,7 +541,7 @@ void mgos_config_board_btn3_set_defaults(struct mgos_config_board_btn3 *cfg) {
 
 /* struct mgos_config_board */
 const struct mgos_conf_entry *mgos_config_board_get_schema(void) {
-  return &mgos_config_schema_[163];
+  return &mgos_config_schema_[161];
 }
 
 void mgos_config_board_set_defaults(struct mgos_config_board *cfg) {
@@ -880,11 +876,6 @@ const char * mgos_config_get_http_auth_file(const struct mgos_config *cfg) { ret
 const char * mgos_config_get_default_http_auth_file(void) { return NULL; }
 void mgos_config_set_http_auth_file(struct mgos_config *cfg, const char * v) { mgos_conf_set_str(&cfg->http.auth_file, v); }
 
-/* http.auth_algo */
-int mgos_config_get_http_auth_algo(const struct mgos_config *cfg) { return cfg->http.auth_algo; }
-int mgos_config_get_default_http_auth_algo(void) { return 0; }
-void mgos_config_set_http_auth_algo(struct mgos_config *cfg, int v) { cfg->http.auth_algo = v; }
-
 /* http.extra_headers */
 const char * mgos_config_get_http_extra_headers(const struct mgos_config *cfg) { return cfg->http.extra_headers; }
 const char * mgos_config_get_default_http_extra_headers(void) { return NULL; }
@@ -985,11 +976,6 @@ void mgos_config_set_rpc_auth_domain(struct mgos_config *cfg, const char * v) { 
 const char * mgos_config_get_rpc_auth_file(const struct mgos_config *cfg) { return cfg->rpc.auth_file; }
 const char * mgos_config_get_default_rpc_auth_file(void) { return NULL; }
 void mgos_config_set_rpc_auth_file(struct mgos_config *cfg, const char * v) { mgos_conf_set_str(&cfg->rpc.auth_file, v); }
-
-/* rpc.auth_algo */
-int mgos_config_get_rpc_auth_algo(const struct mgos_config *cfg) { return cfg->rpc.auth_algo; }
-int mgos_config_get_default_rpc_auth_algo(void) { return 0; }
-void mgos_config_set_rpc_auth_algo(struct mgos_config *cfg, int v) { cfg->rpc.auth_algo = v; }
 
 /* rpc.uart */
 const struct mgos_config_rpc_uart *mgos_config_get_rpc_uart(const struct mgos_config *cfg) { return &cfg->rpc.uart; }
@@ -1110,17 +1096,17 @@ const struct mgos_config_wifi_sta *mgos_config_get_wifi_sta(const struct mgos_co
 
 /* wifi.sta.enable */
 int mgos_config_get_wifi_sta_enable(const struct mgos_config *cfg) { return cfg->wifi.sta.enable; }
-int mgos_config_get_default_wifi_sta_enable(void) { return true; }
+int mgos_config_get_default_wifi_sta_enable(void) { return false; }
 void mgos_config_set_wifi_sta_enable(struct mgos_config *cfg, int v) { cfg->wifi.sta.enable = v; }
 
 /* wifi.sta.ssid */
 const char * mgos_config_get_wifi_sta_ssid(const struct mgos_config *cfg) { return cfg->wifi.sta.ssid; }
-const char * mgos_config_get_default_wifi_sta_ssid(void) { return "ASUS"; }
+const char * mgos_config_get_default_wifi_sta_ssid(void) { return NULL; }
 void mgos_config_set_wifi_sta_ssid(struct mgos_config *cfg, const char * v) { mgos_conf_set_str(&cfg->wifi.sta.ssid, v); }
 
 /* wifi.sta.pass */
 const char * mgos_config_get_wifi_sta_pass(const struct mgos_config *cfg) { return cfg->wifi.sta.pass; }
-const char * mgos_config_get_default_wifi_sta_pass(void) { return "bmns1xA8"; }
+const char * mgos_config_get_default_wifi_sta_pass(void) { return NULL; }
 void mgos_config_set_wifi_sta_pass(struct mgos_config *cfg, const char * v) { mgos_conf_set_str(&cfg->wifi.sta.pass, v); }
 
 /* wifi.sta.user */
@@ -1193,12 +1179,12 @@ void mgos_config_set_wifi_sta1_enable(struct mgos_config *cfg, int v) { cfg->wif
 
 /* wifi.sta1.ssid */
 const char * mgos_config_get_wifi_sta1_ssid(const struct mgos_config *cfg) { return cfg->wifi.sta1.ssid; }
-const char * mgos_config_get_default_wifi_sta1_ssid(void) { return "ASUS"; }
+const char * mgos_config_get_default_wifi_sta1_ssid(void) { return NULL; }
 void mgos_config_set_wifi_sta1_ssid(struct mgos_config *cfg, const char * v) { mgos_conf_set_str(&cfg->wifi.sta1.ssid, v); }
 
 /* wifi.sta1.pass */
 const char * mgos_config_get_wifi_sta1_pass(const struct mgos_config *cfg) { return cfg->wifi.sta1.pass; }
-const char * mgos_config_get_default_wifi_sta1_pass(void) { return "bmns1xA8"; }
+const char * mgos_config_get_default_wifi_sta1_pass(void) { return NULL; }
 void mgos_config_set_wifi_sta1_pass(struct mgos_config *cfg, const char * v) { mgos_conf_set_str(&cfg->wifi.sta1.pass, v); }
 
 /* wifi.sta1.user */
@@ -1271,12 +1257,12 @@ void mgos_config_set_wifi_sta2_enable(struct mgos_config *cfg, int v) { cfg->wif
 
 /* wifi.sta2.ssid */
 const char * mgos_config_get_wifi_sta2_ssid(const struct mgos_config *cfg) { return cfg->wifi.sta2.ssid; }
-const char * mgos_config_get_default_wifi_sta2_ssid(void) { return "ASUS"; }
+const char * mgos_config_get_default_wifi_sta2_ssid(void) { return NULL; }
 void mgos_config_set_wifi_sta2_ssid(struct mgos_config *cfg, const char * v) { mgos_conf_set_str(&cfg->wifi.sta2.ssid, v); }
 
 /* wifi.sta2.pass */
 const char * mgos_config_get_wifi_sta2_pass(const struct mgos_config *cfg) { return cfg->wifi.sta2.pass; }
-const char * mgos_config_get_default_wifi_sta2_pass(void) { return "bmns1xA8"; }
+const char * mgos_config_get_default_wifi_sta2_pass(void) { return NULL; }
 void mgos_config_set_wifi_sta2_pass(struct mgos_config *cfg, const char * v) { mgos_conf_set_str(&cfg->wifi.sta2.pass, v); }
 
 /* wifi.sta2.user */
@@ -1459,12 +1445,10 @@ static const char *mgos_config_str_table[] = {
   "192.168.4.2",
   "255.255.255.0",
   "80",
-  "ASUS",
   "BGN",
   "Mongoose",
   "Mongoose_??????",
   "RPC",
-  "bmns1xA8",
   "ca.pem",
   "esp32_??????",
 };

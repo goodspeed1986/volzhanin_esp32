@@ -1,6 +1,6 @@
 {
   "arch": "esp32",
   "platform": "esp32",
-  "app_name": "Volzhanin",
-  "build_time_ms": 66248
+  "app_name": "volzhanin_esp32",
+  "build_time_ms": 70283
 }

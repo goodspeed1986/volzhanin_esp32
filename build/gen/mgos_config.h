@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/latest/apps/Volzhanin/esp32/build_contexts/build_ctx_303321544/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/latest/apps/Volzhanin/esp32/build_contexts/build_ctx_303321544/build/gen/mos_conf_schema.yml
+ * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.19.1/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_272508375/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/2.19.1/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_272508375/build/gen/mos_conf_schema.yml
  */
 
 #pragma once
@@ -241,7 +241,6 @@ struct mgos_config_http {
   const char * hidden_files;
   const char * auth_domain;
   const char * auth_file;
-  int auth_algo;
   const char * extra_headers;
 };
 const struct mgos_conf_entry *mgos_config_http_get_schema(void);
@@ -331,7 +330,6 @@ struct mgos_config_rpc {
   const char * acl_file;
   const char * auth_domain;
   const char * auth_file;
-  int auth_algo;
   struct mgos_config_rpc_uart uart;
 };
 const struct mgos_conf_entry *mgos_config_rpc_get_schema(void);
@@ -1302,16 +1300,6 @@ static inline const char * mgos_sys_config_get_default_http_auth_file(void) { re
 void mgos_config_set_http_auth_file(struct mgos_config *cfg, const char * v);
 static inline void mgos_sys_config_set_http_auth_file(const char * v) { mgos_config_set_http_auth_file(&mgos_sys_config, v); }
 
-/* http.auth_algo */
-#define MGOS_CONFIG_HAVE_HTTP_AUTH_ALGO
-#define MGOS_SYS_CONFIG_HAVE_HTTP_AUTH_ALGO
-int mgos_config_get_http_auth_algo(const struct mgos_config *cfg);
-int mgos_config_get_default_http_auth_algo(void);
-static inline int mgos_sys_config_get_http_auth_algo(void) { return mgos_config_get_http_auth_algo(&mgos_sys_config); }
-static inline int mgos_sys_config_get_default_http_auth_algo(void) { return mgos_config_get_default_http_auth_algo(); }
-void mgos_config_set_http_auth_algo(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_http_auth_algo(int v) { mgos_config_set_http_auth_algo(&mgos_sys_config, v); }
-
 /* http.extra_headers */
 #define MGOS_CONFIG_HAVE_HTTP_EXTRA_HEADERS
 #define MGOS_SYS_CONFIG_HAVE_HTTP_EXTRA_HEADERS
@@ -1513,16 +1501,6 @@ static inline const char * mgos_sys_config_get_rpc_auth_file(void) { return mgos
 static inline const char * mgos_sys_config_get_default_rpc_auth_file(void) { return mgos_config_get_default_rpc_auth_file(); }
 void mgos_config_set_rpc_auth_file(struct mgos_config *cfg, const char * v);
 static inline void mgos_sys_config_set_rpc_auth_file(const char * v) { mgos_config_set_rpc_auth_file(&mgos_sys_config, v); }
-
-/* rpc.auth_algo */
-#define MGOS_CONFIG_HAVE_RPC_AUTH_ALGO
-#define MGOS_SYS_CONFIG_HAVE_RPC_AUTH_ALGO
-int mgos_config_get_rpc_auth_algo(const struct mgos_config *cfg);
-int mgos_config_get_default_rpc_auth_algo(void);
-static inline int mgos_sys_config_get_rpc_auth_algo(void) { return mgos_config_get_rpc_auth_algo(&mgos_sys_config); }
-static inline int mgos_sys_config_get_default_rpc_auth_algo(void) { return mgos_config_get_default_rpc_auth_algo(); }
-void mgos_config_set_rpc_auth_algo(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_rpc_auth_algo(int v) { mgos_config_set_rpc_auth_algo(&mgos_sys_config, v); }
 
 /* rpc.uart */
 #define MGOS_CONFIG_HAVE_RPC_UART

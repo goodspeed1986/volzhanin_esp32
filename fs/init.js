@@ -20,11 +20,12 @@ let Buzzer = 13;		// Пищалка
 let NextButton = 18;		// кнопка Перехода на следующий этап
 
 let welding = {
-  state: 1, //1-Оплавление, 2-Прогрев, 3-Тех.пауза, 4-Осадка, 5-Сварка, 6-Сварка с пониженным давлением
-  alert: 0, //1-давление вне диапазона, 2-20 секунд до окончания этапы, 3-низкий заряд батареи, 4-низкая температур окр. среды
+  state: 0, //1-Оплавление, 2-Прогрев, 3-Тех.пауза, 4-Осадка, 5-Сварка, 6-Сварка с пониженным давлением
+  alert: [0, 0, 0, 0], //1-давление вне диапазона, 2-20 секунд до окончания этапы, 3-низкий заряд батареи, 4-низкая температур окр. среды
   pressure: 0.0, //Текущее давление в системе
   temperature: 0.0, //Температура окружающей среды
-  bat_voltage: 0.0 //Заряд батареи
+  bat_voltage: 0.0, //Заряд батареи
+  cur_time:0 //Время работы на текущем этапе
 };
 
 let welding_param = {
@@ -67,21 +68,21 @@ print('Calling C sum:', f(1, 2));
 
 let f1 = ffi('char *foo(struct mg_str *)');*/
 
-/*function getRandom(min, max) {
+function getRandom(min, max) {
   let random = Math.random() * (max - min) + min;
   return Math.round(random * 100) / 100; //Максимум не включается, минимум включается
-}*/
+}
 
 let subscriber = undefined;
 //8fbd742c-3d7d-4a94-839e-45c265a2e7f9 main
-//3b4001a1-6cf9-41aa-991c-6092c909arch archive
-//9250fdf0-d060-4a17-aea1-28952009weld welding
+//67a4eeb9-98f1-4186-8717-df670471d68b archive
+//4e75c6fe-d008-49f2-b182-fe231eed747c welding
 GATTS.registerService(
   "8fbd742c-3d7d-4a94-839e-45c265a2e7f9",
   GATT.SEC_LEVEL_NONE,
   [
-    ["3b4001a1-6cf9-41aa-991c-6092c909arch", GATT.PROP_RWNI(1, 1, 0, 0)],
-    ["9250fdf0-d060-4a17-aea1-28952009weld", GATT.PROP_RWNI(1, 1, 1, 0)],
+    ["67a4eeb9-98f1-4186-8717-df670471d68b", GATT.PROP_RWNI(1, 1, 0, 0)],
+    ["4e75c6fe-d008-49f2-b182-fe231eed747c", GATT.PROP_RWNI(1, 1, 1, 0)],
   ],
   function svch(c, ev, arg) {
     //print(JSON.stringify(c), ev, arg, JSON.stringify(arg));
@@ -91,7 +92,7 @@ GATTS.registerService(
     } else if (ev === GATTS.EV_READ) {
       //READ ARCHIVE STATE FROM DEVICE (arch_welding)
       //23.5;23.5;12.5;34.5;12.8;...34.6
-      if (arg.uuid === "3b4001a1-6cf9-41aa-991c-6092c909arch") {
+      if (arg.uuid === "67a4eeb9-98f1-4186-8717-df670471d68b") {
         let str1 = "";
         str1 = arch_welding["s" + JSON.stringify(arch_welding.arch_state)].slice(arg.offset + arch_welding.offset, arg.offset + arch_welding.offset + c.mtu - 1)
         GATTS.sendRespData(c, arg, str1);
@@ -99,7 +100,7 @@ GATTS.registerService(
         print("Offset", arg.offset + arch_welding.offset);
         //READ CURRENT STATE FROM DEVICE (welding_param)
         //123456789;106;25;106;0;31.8;900;1800;40;9600;49;123456789;823456789
-      } else if (arg.uuid === "9250fdf0-d060-4a17-aea1-28952009weld") {
+      } else if (arg.uuid === "4e75c6fe-d008-49f2-b182-fe231eed747c") {
         let str2 = "";
         str2 = JSON.stringify(welding_param.id) + ";";
         for (let i = 1; i < 6; i++) {
@@ -116,13 +117,13 @@ GATTS.registerService(
     } else if (ev === GATTS.EV_WRITE) {
       //WRITE ARCHIVE PARAMS TO DEVICE
       //{"offset":0,"arch_state":1}
-      if (arg.uuid === "3b4001a1-6cf9-41aa-991c-6092c909arch") {
+      if (arg.uuid === "67a4eeb9-98f1-4186-8717-df670471d68b") {
         let archive_params = JSON.parse(arg.data);
         arch_welding.offset = archive_params.offset;
         arch_welding.arch_state = archive_params.arch_state;
         // RESET ALL ARCHIVES WHEN FINISH READING ARCHIVES
         //{"offset":0,"arch_state":0}
-        if (arch_welding.state === 0) {
+        if (arch_welding.arch_state === 0) {
           for (let i = 1; i < 6; i++) {
             arch_welding["s" + i] = "";
           }
@@ -132,7 +133,7 @@ GATTS.registerService(
         //WRITE CURRENT PARAMS TO DEVICE  cmd:0 - welding_param, cmd:1 - change state
         //{cmd:0, sp_p:[106,25,106,0,31.8], st_t:[900,1800,40,9600,49], ts:123456789, id:"12345678"}
         //{cmd:1, state:1}
-      } else if (arg.uuid === "9250fdf0-d060-4a17-aea1-28952009weld") {
+      } else if (arg.uuid === "4e75c6fe-d008-49f2-b182-fe231eed747c") {
         let write_params = JSON.parse(arg.data);
         if (write_params.cmd === 0) {
           welding_param.id = write_params.id;
@@ -140,6 +141,7 @@ GATTS.registerService(
           welding_param.state_time = write_params.st_t;
         } else {
           welding.state = write_params.state;
+          welding.cur_time = 0;
         }
         print("write_params", JSON.stringify(write_params));
         
@@ -163,34 +165,44 @@ GATTS.registerService(
   });
 
 Timer.set(1000, Timer.REPEAT, function () {
-  Sensors.measure_pressure();
-  welding.pressure = Sensors.report().pressure;
+  //Sensors.measure_pressure();
+  //welding.pressure = Sensors.report().pressure;
+  
   print("Pressure:", JSON.stringify(welding.pressure));
   if (welding.state > 0) {
-    arch_welding["s" + JSON.stringify(welding.state)] = arch_welding["s" + JSON.stringify(welding.state)] + Number2String(welding.pressure) + ";";
+    welding.cur_time = welding.cur_time + 1;
+    welding.pressure = getRandom(welding_param.sp_pressure[welding.state-1]-5,welding_param.sp_pressure[welding.state-1]+5);
+    if (welding.cur_time < welding_param.state_time[welding.state-1] + 600) {
+      arch_welding["s" + JSON.stringify(welding.state)] = arch_welding["s" + JSON.stringify(welding.state)] + Number2String(welding.pressure) + ";";
+    }  
   }
   let x = GPIO.toggle(ledBlinkRED);
+}, null);
 
+Timer.set(10000, Timer.REPEAT, function () {
+  //Sensors.measure_temperature();
+  //welding.temperature = Sensors.report().temperature;
+  welding.temperature = 24.5;
+  print("Temperature:", JSON.stringify(welding.temperature));
+  //Sensors.measure_voltage();
+  //welding.bat_voltage = Sensors.report().voltage;
+  welding.bat_voltage = 4.2;
+  print("Battery Voltage:", JSON.stringify(welding.bat_voltage));
+  //print(JSON.stringify(arch_welding["s" + JSON.stringify(welding.state)].length));
+  //gc(true);
+}, null);
+
+Timer.set(1000, Timer.REPEAT, function () {
   if (subscriber) {
     let se = subscriber;
     //let mtu = "MTU" + se.c.mtu;
     //NOTIFY CURRENT STATE, PARAMS
-    //1;0;23.5;4.2;12.1
-    let notifyStr = JSON.stringify(welding.state) + ";" + JSON.stringify(welding.error) + ";";
-    notifyStr = notifyStr + Number2String(welding.pressure) + ";" + Number2String(welding.bat_voltage) + Number2String(welding.temperature);
+    //1;0;0;0;0;23.5;4.2;12.1
+    let notifyStr = JSON.stringify(welding.state) + ";" + JSON.stringify(welding.alert[0]) + ";" + JSON.stringify(welding.alert[1]) + ";";
+    notifyStr = notifyStr + JSON.stringify(welding.alert[2]) + ";" + JSON.stringify(welding.alert[3]) + ";"
+    notifyStr = notifyStr + Number2String(welding.pressure) + ";" + Number2String(welding.bat_voltage) + ";" + Number2String(welding.temperature);
     GATTS.notify(se.c, se.mode, se.handle, notifyStr);
   }
-}, null);
-
-Timer.set(10000, Timer.REPEAT, function () {
-  Sensors.measure_temperature();
-  welding.temperature = Sensors.report().temperature;
-  print("Temperature:", JSON.stringify(welding.temperature));
-  Sensors.measure_voltage();
-  welding.bat_voltage = Sensors.report().voltage;
-  print("Battery Voltage:", JSON.stringify(welding.bat_voltage));
-  print(JSON.stringify(arch_welding["s" + JSON.stringify(welding.state)].length));
-  gc(true);
 }, null);
 
 function Number2String(num) {

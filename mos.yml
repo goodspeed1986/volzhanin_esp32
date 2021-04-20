@@ -53,8 +53,7 @@ libs:
   - origin: https://github.com/mongoose-os-libs/rpc-service-fs
   - origin: https://github.com/mongoose-os-libs/rpc-uart
   - origin: https://github.com/mongoose-os-libs/wifi
-  - origin: https://github.com/mongoose-os-libs/mjs  # <-- Add this line!
-  #- origin: https://github.com/mongoose-os-libs/arduino-adafruit-ads1x15
+  - origin: https://github.com/mongoose-os-libs/mjs
   - origin: https://github.com/mongoose-os-libs/arduino-onewire
   - origin: https://github.com/mongoose-os-libs/core
   - origin: https://github.com/mongoose-os-libs/pwm
@@ -67,20 +66,20 @@ config_schema:
   - ["bt.keep_enabled", true]
   - ["i2c.enable", true]
   - ["debug.level", 2 ]
-  - ["wifi.sta.enable", true]
-  - ["wifi.sta.ssid", "ASUS"]
-  - ["wifi.sta.pass", "bmns1xA8"]
+  #- ["wifi.sta.enable", true]
+  #- ["wifi.sta.ssid", "ASUS"]
+  #- ["wifi.sta.pass", "bmns1xA8"]
 build_vars:
   # enable 16MB flash size + PSRAM
-  ESP_IDF_SDKCONFIG_OPTS: >
-    ${build_vars.ESP_IDF_SDKCONFIG_OPTS} 
-      CONFIG_ESPTOOLPY_FLASHSIZE_4MB=y
-      CONFIG_ESPTOOLPY_FLASHSIZE_16MB
-      CONFIG_ESPTOOLPY_FLASHSIZE=16MB
-      CONFIG_SPIRAM_SUPPORT=y
-      CONFIG_SPIRAM_BOOT_INIT=y
-      CONFIG_SPIRAM_CACHE_WORKAROUND=y
-      CONFIG_SPI_MASTER_IN_IRAM=y
+ # ESP_IDF_SDKCONFIG_OPTS: >
+  #  ${build_vars.ESP_IDF_SDKCONFIG_OPTS} 
+   #   CONFIG_ESPTOOLPY_FLASHSIZE_4MB=y
+    #  CONFIG_ESPTOOLPY_FLASHSIZE_16MB
+    # CONFIG_ESPTOOLPY_FLASHSIZE=16MB
+    #  CONFIG_SPIRAM_SUPPORT=y
+    #  CONFIG_SPIRAM_BOOT_INIT=y
+    #  CONFIG_SPIRAM_CACHE_WORKAROUND=y
+    #  CONFIG_SPI_MASTER_IN_IRAM=y
 
 # Used by the mos tool to catch mos binaries incompatible with this file format
 manifest_version: 2020-08-02
