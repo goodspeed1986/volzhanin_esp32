@@ -1,8 +1,8 @@
-//load('api_ads1015.js');
 load('api_i2c.js');
 load('api_pwm.js');
 load('api_arduino_onewire.js');
 load('ds18b20.js');
+
 
 let ADS1X15_I2C_addresss = 0x48;
 //let ads = Adafruit_ADS1015.create_ads1115(ADS1X15_I2C_addresss);
@@ -14,12 +14,21 @@ let Sensors = {
   voltage: 0,
   temperature: 0,
   tempAddr: "01234567",
+  p_in_min: 4,
+  p_in_max: 20,
+  p_out_min: 0,
+  p_out_max: 80,
   // инициализация датчиков
   init: function () {
     //датчик давления
     //ads.setGain(0x04E3);
     //ads.begin();
     //датчик температуры
+    this.p_in_min = Cfg.get('sensors.p_in_min');
+    this.p_in_max = Cfg.get('sensors.p_in_max');
+    this.p_out_min = Cfg.get('sensors.p_out_min');
+    this.p_out_max = Cfg.get('sensors.p_out_max');
+
     ow.target_search(DEVICE_FAMILY.DS18B20);
     ow.search(this.tempAddr, 0);
     return;
@@ -45,6 +54,8 @@ let Sensors = {
       // задержка между измерениями в датчике давления
     //}
     this.pressure = (20.48 * pressDist) / (/*4 * */32768); // измерение давления
+    //Преобразования давления из 4..20 мА в бары
+    this.pressure = (this.pressure - this.p_in_min) * (this.p_out_max - this.p_out_min) / (this.p_in_max - this.p_in_min) + this.p_out_min;
     return;
   },
   measure_temperature: function () {

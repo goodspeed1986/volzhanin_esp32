@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.19.1/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_272508375/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/2.19.1/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_272508375/build/gen/mos_conf_schema.yml
+ * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.19.1/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_565978980/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/2.19.1/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_565978980/build/gen/mos_conf_schema.yml
  */
 
 #include "mgos_config.h"
@@ -13,7 +13,7 @@
 
 /* struct mgos_config */
 static const struct mgos_conf_entry mgos_config_schema_[] = {
-    {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 179},
+    {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 184},
     {.type = CONF_TYPE_OBJECT, .key = "debug", .offset = offsetof(struct mgos_config, debug), .num_desc = 10},
     {.type = CONF_TYPE_STRING, .key = "udp_log_addr", .offset = offsetof(struct mgos_config, debug.udp_log_addr)},
     {.type = CONF_TYPE_INT, .key = "udp_log_level", .offset = offsetof(struct mgos_config, debug.udp_log_level)},
@@ -193,6 +193,11 @@ static const struct mgos_conf_entry mgos_config_schema_[] = {
     {.type = CONF_TYPE_OBJECT, .key = "btn3", .offset = offsetof(struct mgos_config, board.btn3), .num_desc = 2},
     {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.btn3.pin)},
     {.type = CONF_TYPE_BOOL, .key = "pull_up", .offset = offsetof(struct mgos_config, board.btn3.pull_up)},
+    {.type = CONF_TYPE_OBJECT, .key = "sensors", .offset = offsetof(struct mgos_config, sensors), .num_desc = 4},
+    {.type = CONF_TYPE_INT, .key = "p_out_min", .offset = offsetof(struct mgos_config, sensors.p_out_min)},
+    {.type = CONF_TYPE_INT, .key = "p_out_max", .offset = offsetof(struct mgos_config, sensors.p_out_max)},
+    {.type = CONF_TYPE_INT, .key = "p_in_min", .offset = offsetof(struct mgos_config, sensors.p_in_min)},
+    {.type = CONF_TYPE_INT, .key = "p_in_max", .offset = offsetof(struct mgos_config, sensors.p_in_max)},
 };
 
 /* struct mgos_config_debug */
@@ -553,6 +558,18 @@ void mgos_config_board_set_defaults(struct mgos_config_board *cfg) {
   mgos_config_board_btn3_set_defaults(&cfg->btn3);
 }
 
+/* struct mgos_config_sensors */
+const struct mgos_conf_entry *mgos_config_sensors_get_schema(void) {
+  return &mgos_config_schema_[180];
+}
+
+void mgos_config_sensors_set_defaults(struct mgos_config_sensors *cfg) {
+  cfg->p_out_min = 0;
+  cfg->p_out_max = 80;
+  cfg->p_in_min = 4;
+  cfg->p_in_max = 20;
+}
+
 /* struct mgos_config */
 const struct mgos_conf_entry *mgos_config_get_schema(void) {
   return &mgos_config_schema_[0];
@@ -572,6 +589,7 @@ void mgos_config_set_defaults(struct mgos_config *cfg) {
   mgos_config_rpc_set_defaults(&cfg->rpc);
   mgos_config_wifi_set_defaults(&cfg->wifi);
   mgos_config_board_set_defaults(&cfg->board);
+  mgos_config_sensors_set_defaults(&cfg->sensors);
 }
 
 /* Global instance */
@@ -1425,6 +1443,29 @@ void mgos_config_set_board_btn3_pin(struct mgos_config *cfg, int v) { cfg->board
 int mgos_config_get_board_btn3_pull_up(const struct mgos_config *cfg) { return cfg->board.btn3.pull_up; }
 int mgos_config_get_default_board_btn3_pull_up(void) { return false; }
 void mgos_config_set_board_btn3_pull_up(struct mgos_config *cfg, int v) { cfg->board.btn3.pull_up = v; }
+
+/* sensors */
+const struct mgos_config_sensors *mgos_config_get_sensors(const struct mgos_config *cfg) { return &cfg->sensors; }
+
+/* sensors.p_out_min */
+int mgos_config_get_sensors_p_out_min(const struct mgos_config *cfg) { return cfg->sensors.p_out_min; }
+int mgos_config_get_default_sensors_p_out_min(void) { return 0; }
+void mgos_config_set_sensors_p_out_min(struct mgos_config *cfg, int v) { cfg->sensors.p_out_min = v; }
+
+/* sensors.p_out_max */
+int mgos_config_get_sensors_p_out_max(const struct mgos_config *cfg) { return cfg->sensors.p_out_max; }
+int mgos_config_get_default_sensors_p_out_max(void) { return 80; }
+void mgos_config_set_sensors_p_out_max(struct mgos_config *cfg, int v) { cfg->sensors.p_out_max = v; }
+
+/* sensors.p_in_min */
+int mgos_config_get_sensors_p_in_min(const struct mgos_config *cfg) { return cfg->sensors.p_in_min; }
+int mgos_config_get_default_sensors_p_in_min(void) { return 4; }
+void mgos_config_set_sensors_p_in_min(struct mgos_config *cfg, int v) { cfg->sensors.p_in_min = v; }
+
+/* sensors.p_in_max */
+int mgos_config_get_sensors_p_in_max(const struct mgos_config *cfg) { return cfg->sensors.p_in_max; }
+int mgos_config_get_default_sensors_p_in_max(void) { return 20; }
+void mgos_config_set_sensors_p_in_max(struct mgos_config *cfg, int v) { cfg->sensors.p_in_max = v; }
 bool mgos_sys_config_get(const struct mg_str key, struct mg_str *value) {
   return mgos_config_get(key, value, &mgos_sys_config, mgos_config_schema());
 }

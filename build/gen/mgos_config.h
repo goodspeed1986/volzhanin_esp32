@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.19.1/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_272508375/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/2.19.1/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_272508375/build/gen/mos_conf_schema.yml
+ * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.19.1/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_565978980/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/2.19.1/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_565978980/build/gen/mos_conf_schema.yml
  */
 
 #pragma once
@@ -669,6 +669,32 @@ static inline void mgos_config_board_free(struct mgos_config_board *cfg) {
   return mgos_conf_free(mgos_config_board_get_schema(), cfg);
 }
 
+/* sensors type struct mgos_config_sensors */
+struct mgos_config_sensors {
+  int p_out_min;
+  int p_out_max;
+  int p_in_min;
+  int p_in_max;
+};
+const struct mgos_conf_entry *mgos_config_sensors_get_schema(void);
+void mgos_config_sensors_set_defaults(struct mgos_config_sensors *cfg);
+static inline bool mgos_config_sensors_parse(struct mg_str json, struct mgos_config_sensors *cfg) {
+  mgos_config_sensors_set_defaults(cfg);
+  return mgos_conf_parse_sub(json, mgos_config_sensors_get_schema(), cfg);
+}
+static inline bool mgos_config_sensors_emit(const struct mgos_config_sensors *cfg, bool pretty, struct json_out *out) {
+  return mgos_conf_emit_json_out(cfg, NULL, mgos_config_sensors_get_schema(), pretty, out);
+}
+static inline bool mgos_config_sensors_emit_f(const struct mgos_config_sensors *cfg, bool pretty, const char *fname) {
+  return mgos_conf_emit_f(cfg, NULL, mgos_config_sensors_get_schema(), pretty, fname);
+}
+static inline bool mgos_config_sensors_copy(const struct mgos_config_sensors *src, struct mgos_config_sensors *dst) {
+  return mgos_conf_copy(mgos_config_sensors_get_schema(), src, dst);
+}
+static inline void mgos_config_sensors_free(struct mgos_config_sensors *cfg) {
+  return mgos_conf_free(mgos_config_sensors_get_schema(), cfg);
+}
+
 /* <root> type struct mgos_config */
 struct mgos_config {
   struct mgos_config_debug debug;
@@ -684,6 +710,7 @@ struct mgos_config {
   struct mgos_config_rpc rpc;
   struct mgos_config_wifi wifi;
   struct mgos_config_board board;
+  struct mgos_config_sensors sensors;
 };
 const struct mgos_conf_entry *mgos_config_get_schema(void);
 void mgos_config_set_defaults(struct mgos_config *cfg);
@@ -2399,6 +2426,52 @@ static inline int mgos_sys_config_get_board_btn3_pull_up(void) { return mgos_con
 static inline int mgos_sys_config_get_default_board_btn3_pull_up(void) { return mgos_config_get_default_board_btn3_pull_up(); }
 void mgos_config_set_board_btn3_pull_up(struct mgos_config *cfg, int v);
 static inline void mgos_sys_config_set_board_btn3_pull_up(int v) { mgos_config_set_board_btn3_pull_up(&mgos_sys_config, v); }
+
+/* sensors */
+#define MGOS_CONFIG_HAVE_SENSORS
+#define MGOS_SYS_CONFIG_HAVE_SENSORS
+const struct mgos_config_sensors *mgos_config_get_sensors(const struct mgos_config *cfg);
+static inline const struct mgos_config_sensors *mgos_sys_config_get_sensors(void) { return mgos_config_get_sensors(&mgos_sys_config); }
+
+/* sensors.p_out_min */
+#define MGOS_CONFIG_HAVE_SENSORS_P_OUT_MIN
+#define MGOS_SYS_CONFIG_HAVE_SENSORS_P_OUT_MIN
+int mgos_config_get_sensors_p_out_min(const struct mgos_config *cfg);
+int mgos_config_get_default_sensors_p_out_min(void);
+static inline int mgos_sys_config_get_sensors_p_out_min(void) { return mgos_config_get_sensors_p_out_min(&mgos_sys_config); }
+static inline int mgos_sys_config_get_default_sensors_p_out_min(void) { return mgos_config_get_default_sensors_p_out_min(); }
+void mgos_config_set_sensors_p_out_min(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_sensors_p_out_min(int v) { mgos_config_set_sensors_p_out_min(&mgos_sys_config, v); }
+
+/* sensors.p_out_max */
+#define MGOS_CONFIG_HAVE_SENSORS_P_OUT_MAX
+#define MGOS_SYS_CONFIG_HAVE_SENSORS_P_OUT_MAX
+int mgos_config_get_sensors_p_out_max(const struct mgos_config *cfg);
+int mgos_config_get_default_sensors_p_out_max(void);
+static inline int mgos_sys_config_get_sensors_p_out_max(void) { return mgos_config_get_sensors_p_out_max(&mgos_sys_config); }
+static inline int mgos_sys_config_get_default_sensors_p_out_max(void) { return mgos_config_get_default_sensors_p_out_max(); }
+void mgos_config_set_sensors_p_out_max(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_sensors_p_out_max(int v) { mgos_config_set_sensors_p_out_max(&mgos_sys_config, v); }
+
+/* sensors.p_in_min */
+#define MGOS_CONFIG_HAVE_SENSORS_P_IN_MIN
+#define MGOS_SYS_CONFIG_HAVE_SENSORS_P_IN_MIN
+int mgos_config_get_sensors_p_in_min(const struct mgos_config *cfg);
+int mgos_config_get_default_sensors_p_in_min(void);
+static inline int mgos_sys_config_get_sensors_p_in_min(void) { return mgos_config_get_sensors_p_in_min(&mgos_sys_config); }
+static inline int mgos_sys_config_get_default_sensors_p_in_min(void) { return mgos_config_get_default_sensors_p_in_min(); }
+void mgos_config_set_sensors_p_in_min(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_sensors_p_in_min(int v) { mgos_config_set_sensors_p_in_min(&mgos_sys_config, v); }
+
+/* sensors.p_in_max */
+#define MGOS_CONFIG_HAVE_SENSORS_P_IN_MAX
+#define MGOS_SYS_CONFIG_HAVE_SENSORS_P_IN_MAX
+int mgos_config_get_sensors_p_in_max(const struct mgos_config *cfg);
+int mgos_config_get_default_sensors_p_in_max(void);
+static inline int mgos_sys_config_get_sensors_p_in_max(void) { return mgos_config_get_sensors_p_in_max(&mgos_sys_config); }
+static inline int mgos_sys_config_get_default_sensors_p_in_max(void) { return mgos_config_get_default_sensors_p_in_max(); }
+void mgos_config_set_sensors_p_in_max(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_sensors_p_in_max(int v) { mgos_config_set_sensors_p_in_max(&mgos_sys_config, v); }
 
 bool mgos_sys_config_get(const struct mg_str key, struct mg_str *value);
 bool mgos_sys_config_set(const struct mg_str key, const struct mg_str value, bool free_strings);

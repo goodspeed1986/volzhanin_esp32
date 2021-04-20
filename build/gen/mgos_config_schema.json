@@ -177,5 +177,10 @@
   ["board.btn2.pull_up", "b", {"title": "True if button is pulled up when inactive"}],
   ["board.btn3", "o", {}],
   ["board.btn3.pin", "i", {"title": "Button GPIO pin"}],
-  ["board.btn3.pull_up", "b", {"title": "True if button is pulled up when inactive"}]
+  ["board.btn3.pull_up", "b", {"title": "True if button is pulled up when inactive"}],
+  ["sensors", "o", {}],
+  ["sensors.p_out_min", "i", {"title": "Minimum OUT Pressure"}],
+  ["sensors.p_out_max", "i", {"title": "Maximum OUT Pressure"}],
+  ["sensors.p_in_min", "i", {"title": "Minimum IN Pressure signal"}],
+  ["sensors.p_in_max", "i", {"title": "Maximum IN Pressure signal"}]
 ]
