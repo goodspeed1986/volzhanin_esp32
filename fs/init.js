@@ -9,10 +9,10 @@ load('sensors.js');
 
 //let btn = Cfg.get('board.btn1.pin');              // Built-in button GPIO
 
-
-let ledBlinkRED = 5; // leds
-let ledBlinkGREEN = 2;// leds
-let ledBlinkBLUE = 4;// leds
+let led_Ind = [0, 0, 0, 0]; //"alarm", "battery", "button", "ble"
+//let ledBlinkRED = 5; // leds
+//let ledBlinkGREEN = 2;// leds
+//let ledBlinkBLUE = 4;// leds
 let DC_enable = 26; // Включает преобразователь на 12 вольт для запитки токовой петли. Для экономии батарейки можно отключить.
 let Power_present = 35; // На микросхеме заряда пришло 5 вольт. Можно заряжаться (вход)
 let Charge_enable = 25; //Подаем 1 для отключения зарядки АКБ. Например по температуре.
@@ -49,9 +49,9 @@ let arch_welding = {
 };
 
 
-GPIO.set_mode(ledBlinkRED, GPIO.MODE_OUTPUT);
-GPIO.set_mode(ledBlinkGREEN, GPIO.MODE_OUTPUT);
-GPIO.set_mode(ledBlinkBLUE, GPIO.MODE_OUTPUT);
+//GPIO.set_mode(ledBlinkRED, GPIO.MODE_OUTPUT);
+//GPIO.set_mode(ledBlinkGREEN, GPIO.MODE_OUTPUT);
+//GPIO.set_mode(ledBlinkBLUE, GPIO.MODE_OUTPUT);
 GPIO.set_mode(Charge_enable, GPIO.MODE_OUTPUT);
 GPIO.set_mode(DC_enable, GPIO.MODE_OUTPUT);
 GPIO.set_mode(Power_present, GPIO.MODE_INPUT);
@@ -118,6 +118,7 @@ GATTS.registerService(
         }
         str2 = str2 + JSON.stringify(welding_param.begin_ts) + ";";
         str2 = str2 + JSON.stringify(welding_param.end_ts);
+        str2 = 
         GATTS.sendRespData(c, arg, str2);
       }
       return GATT.STATUS_OK;
@@ -187,28 +188,28 @@ GATTS.registerService(
   });
 
 Timer.set(1000, Timer.REPEAT, function () {
-  //Sensors.measure_pressure();
-  //welding.pressure = Sensors.report().pressure;
+  Sensors.measure_pressure();
+  welding.pressure = Sensors.report().pressure;
   
   print("Pressure:", JSON.stringify(welding.pressure));
   if (welding.state > 0) {
     welding.cur_time = welding.cur_time + 1;
-    welding.pressure = getRandom(welding_param.sp_pressure[welding.state-1]-5,welding_param.sp_pressure[welding.state-1]+5);
+    //welding.pressure = getRandom(welding_param.sp_pressure[welding.state-1]-5,welding_param.sp_pressure[welding.state-1]+5);
     if (welding.cur_time < welding_param.state_time[welding.state-1] + 600) {
       arch_welding["s" + JSON.stringify(welding.state)] = arch_welding["s" + JSON.stringify(welding.state)] + Number2String(welding.pressure) + ";";
     }  
   }
-  let x = GPIO.toggle(ledBlinkRED);
+
 }, null);
 
 Timer.set(10000, Timer.REPEAT, function () {
-  //Sensors.measure_temperature();
-  //welding.temperature = Sensors.report().temperature;
-  welding.temperature = 24.5;
+  Sensors.measure_temperature();
+  welding.temperature = Sensors.report().temperature;
+  //welding.temperature = 24.5;
   print("Temperature:", JSON.stringify(welding.temperature));
-  //Sensors.measure_voltage();
-  //welding.bat_voltage = Sensors.report().voltage;
-  welding.bat_voltage = 4.2;
+  Sensors.measure_voltage();
+  welding.bat_voltage = Sensors.report().voltage;
+  //welding.bat_voltage = 4.2;
   print("Battery Voltage:", JSON.stringify(welding.bat_voltage));
   //print(JSON.stringify(arch_welding["s" + JSON.stringify(welding.state)].length));
   //gc(true);
@@ -233,6 +234,38 @@ function Number2String(num) {
   let pt = str.indexOf('.');
   return str.slice(0, pt + 2);
 }
+
+let x = 0; let y =0;
+Timer.set(10000, Timer.REPEAT, function () {
+  if (x<6) {
+    Led.set_state_led(x);
+    print("LED x:", x);
+    x++;
+  } else {
+    x = 0;
+  }
+  if (y<4) {
+    led_Ind[y] = 1;
+    Led.set_ind_led(led_Ind);
+    print("LED:", y);
+    y++;
+  } else {
+    y = 0;
+    led_Ind[0] = 0;
+    led_Ind[1] = 0;
+    led_Ind[2] = 0;
+    led_Ind[3] = 0;
+    Led.set_ind_led(led_Ind);
+  }
+  
+ 
+  
+}, null);
+
+GPIO.set_button_handler(NextButton, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 200,
+  function(x) {
+    print('Button press, pin: ', x);
+  }, null);
   /*
 function splitString(inTxt, sepChr) {
 let pos = inTxt.indexOf(sepChr);

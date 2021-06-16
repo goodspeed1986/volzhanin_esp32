@@ -74,3 +74,42 @@ let Sensors = {
     return;
   }
 };
+
+let MCP23x17_I2C_address = 0x27;
+let IODIRA = 0x00; 
+let IODIRB = 0x01;
+let MGPIOA = 0x12; // Синие LED
+let MGPIOB = 0x13; // Красные LED
+let OLATA = 0x14;
+let OLATB = 0x15;
+
+let Led = {
+  ledState : [0x7F, 0xBF, 0xDF, 0xFB, 0xF7, 0xF7],
+  ledInd : [0xFC, 0xFB, 0xE7, 0xDF],
+  set_state_led: function (led_state) {
+    if (led_state > 0) {
+      I2C.writeRegB(bus, MCP23x17_I2C_address, IODIRB, 0x00);
+      I2C.writeRegB(bus, MCP23x17_I2C_address, MGPIOB, this.ledState[led_state-1]);
+      I2C.writeRegB(bus, MCP23x17_I2C_address, OLATB, this.ledState[led_state-1]);
+      I2C.stop(bus);
+    } else {
+      I2C.writeRegB(bus, MCP23x17_I2C_address, IODIRB, 0x00);
+      I2C.writeRegB(bus, MCP23x17_I2C_address, MGPIOB, 0xFF);
+      I2C.writeRegB(bus, MCP23x17_I2C_address, OLATB, 0xFF);
+      I2C.stop(bus);
+    }
+  },
+
+  set_ind_led: function (led_ind) {
+    let led = 0xFF;
+    for (let j = 0; j < 4; j++) {
+      if (led_ind[j]>0) {
+        led = led & this.ledInd[j];
+      }
+    }
+    I2C.writeRegB(bus, MCP23x17_I2C_address, IODIRA, 0x00);
+    I2C.writeRegB(bus, MCP23x17_I2C_address, MGPIOA, led);
+    I2C.writeRegB(bus, MCP23x17_I2C_address, OLATA, led);
+    I2C.stop(bus);
+  }
+}
