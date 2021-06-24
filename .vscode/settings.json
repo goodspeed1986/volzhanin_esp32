@@ -1,4 +1,4 @@
 {
-    "mos.port": "COM5",
+    "mos.port": "/dev/cu.usbserial-0001",
     "mos.board": "ESP32"
 }

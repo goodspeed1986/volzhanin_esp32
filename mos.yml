@@ -64,12 +64,17 @@ config_schema:
   # bt:
   - ["bt.random_address", false] # Настройки bluetooth
   - ["bt.keep_enabled", true]
+  - ["bt.dev_name", "volzhanin_??????"]
+  - ["wifi.ap.enable", false]
+  - ["wifi.ap.ssid", "update_??????"]
+  - ["wifi.ap.pass", "volzhanin"]
   - ["i2c.enable", true]
   - ["debug.level", 2 ]
   - ["sensors.p_out_min", "i", 0, {title: "Minimum OUT Pressure"}]
   - ["sensors.p_out_max", "i", 16, {title: "Maximum OUT Pressure"}]
   - ["sensors.p_in_min", "i", 4, {title: "Minimum IN Pressure signal"}]
   - ["sensors.p_in_max", "i", 20, {title: "Maximum IN Pressure signal"}]
+
   #- ["wifi.sta.enable", true]
   #- ["wifi.sta.ssid", "ASUS"]
   #- ["wifi.sta.pass", "bmns1xA8"]

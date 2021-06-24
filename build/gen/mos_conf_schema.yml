@@ -209,6 +209,10 @@
 - - http.auth_file
   - s
   - title: Password file to use for auth
+- - http.auth_algo
+  - i
+  - 0
+  - title: 'Password file hashing algorithm: 0 - MD5, 1 - SHA256'
 - - http.extra_headers
   - s
   - title: Extra headers to send with every file served
@@ -284,6 +288,10 @@
   - s
   - ""
   - title: File with user credentials in the htdigest format
+- - rpc.auth_algo
+  - i
+  - 0
+  - title: 'Password file hashing algorithm: 0 - MD5, 1 - SHA256'
 - - rpc.uart
   - o
   - title: RPC-over-UART settings
@@ -380,6 +388,9 @@
   - s
   - title: Password
     type: password
+- - wifi.sta.bssid
+  - s
+  - title: Specific AP to connect to
 - - wifi.sta.user
   - s
   - title: Username for WPA-PEAP mode
@@ -420,14 +431,22 @@
   - title: WiFi Station Config 2
 - - wifi.sta2.enable
   - false
-- - wifi.sta_cfg_idx
+- - wifi.sta_rssi_thr
   - i
-  - 0
-  - title: WiFi station config index to use, 0, 1 or 2
+  - -95
+  - title: Do not consider APs with weaker signal
 - - wifi.sta_connect_timeout
   - i
-  - 30
+  - 15
   - title: Timeout for connection, seconds
+- - wifi.sta_roam_rssi_thr
+  - i
+  - -80
+  - title: If connected to AP with weaker signal, try to find a better one.
+- - wifi.sta_roam_interval
+  - i
+  - 0
+  - title: Scan for better APs at this interval. Set to positive number ot enable.
 - - wifi.ap.keep_enabled
   - b
   - true
@@ -445,10 +464,6 @@
   - i
   - 0
   - title: 'Power save mode for station: 0 - none, 1 - min, 2 - max.'
-- - wifi.sta_all_chan_scan
-  - b
-  - true
-  - title: true to scan all channels or false to perform fast scan
 - - wifi.sta.protocol
   - s
   - BGN
@@ -523,6 +538,14 @@
   - false
 - - bt.keep_enabled
   - true
+- - bt.dev_name
+  - volzhanin_??????
+- - wifi.ap.enable
+  - false
+- - wifi.ap.ssid
+  - update_??????
+- - wifi.ap.pass
+  - volzhanin
 - - i2c.enable
   - true
 - - debug.level
@@ -533,7 +556,7 @@
   - title: Minimum OUT Pressure
 - - sensors.p_out_max
   - i
-  - 80
+  - 16
   - title: Maximum OUT Pressure
 - - sensors.p_in_min
   - i

@@ -175,7 +175,16 @@ GATTS.registerService(
           Cfg.set({ sensors: { p_out_min: Sensors.p_out_min, p_out_max: Sensors.p_out_max, p_in_min: Sensors.p_in_min, p_in_max: Sensors.p_in_max } });
           Sensors.init();
         }
-
+        //cmd:3 - activate wifi for update fw {cmd:3, update:1}
+        if (write_params.cmd === 3) {
+          if (write_params.update === 1) {
+            Cfg.set({wifi: {ap: {enable: true}}});
+            Sys.reboot(500); 
+          } else {
+            Cfg.set({wifi: {ap: {enable: false}}});
+            Sys.reboot(500); 
+          }
+        }
         print("write_params", JSON.stringify(write_params));
 
       }
@@ -200,7 +209,6 @@ GATTS.registerService(
 //Измерение давления и запись в архив
 let blink = 0;
 Timer.set(1000, Timer.REPEAT, function () {
-  //blink === 1 ? 0 : 1;
   if (blink === 1) {blink = 0;} else {blink = 1;}
   Sensors.measure_pressure();
   welding.pressure = Sensors.report().pressure;
@@ -268,10 +276,7 @@ Timer.set(10000, Timer.REPEAT, function () {
     welding.alert[2] = 0;
   }
   //welding.bat_voltage = 4.2;
-  print("State:", JSON.stringify(welding.state));
-  print("Pressure:", JSON.stringify(welding.pressure));
-  print("Temperature:", JSON.stringify(welding.temperature));
-  print("Battery Voltage:", JSON.stringify(welding.bat_voltage));
+  print("State:", JSON.stringify(welding.state), "Pressure:", JSON.stringify(welding.pressure), "Temperature:", JSON.stringify(welding.temperature), "Battery Voltage:", JSON.stringify(welding.bat_voltage));
 
 }, null);
 
