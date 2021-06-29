@@ -8,8 +8,9 @@ load('api_bt_gatts.js');
 load('sensors.js');
 
 //let btn = Cfg.get('board.btn1.pin');              // Built-in button GPIO
+let updateMode = Cfg.get('wifi.ap.enable'); 
 
-let led_Ind = [0, 0, 0, 0]; //"alarm", "battery", "button", "ble"
+let led_Ind = [0, 1, 0, 0]; //"alarm", "battery", "button", "ble"
 Led.set_ind_led(led_Ind);
 Led.set_state_led(0); 
 //let ledBlinkRED = 5; // leds
@@ -22,7 +23,7 @@ let Buzzer = 13;		// Пищалка
 let NextButton = 18;		// кнопка Перехода на следующий этап
 
 let welding = {
-  state: 0, //1-Оплавление, 2-Прогрев, 3-Тех.пауза, 4-Осадка, 5-Сварка, 6-Сварка с пониженным давлением
+  state: 0, // 1-Оплавление, 2-Прогрев, 3-Тех.пауза, 4-Осадка, 5-Сварка, 6-Сварка с пониженным давлением
   alert: [0, 0, 0, 0], //0-давление вне диапазона, 1-20 секунд до окончания этапы, 2-низкий заряд батареи, 3-низкая температур окр. среды
   pressure: 0.0, //Текущее давление в системе
   temperature: 0.0, //Температура окружающей среды
@@ -113,7 +114,7 @@ GATTS.registerService(
         let str2 = "";
         str2 = JSON.stringify(welding_param.id) + ";";
         for (let i = 0; i < 6; i++) {
-          str2 = str2 + JSON.stringify(welding_param.sp_pressure[i]) + ";";
+          str2 = str2 + JSON.stringify(Number2String(welding_param.sp_pressure[i])) + ";";
         }
         for (let i = 0; i < 6; i++) {
           str2 = str2 + JSON.stringify(welding_param.state_time[i]) + ";";
@@ -161,6 +162,11 @@ GATTS.registerService(
         if (write_params.cmd === 1 && welding.alert[3] === 0) {
           if (welding.state > 0) {
             welding_param.actual_time[welding.state - 1] = welding.cur_time;
+          } else {
+            welding_param.end_ts = welding_param.begin_ts;
+            for (let i = 0; i < welding_param.state_num; i++) {
+              welding_param.end_ts = welding_param.end_ts + welding_param.actual_time[i];
+            }
           }
           welding.state = write_params.state;
           welding.cur_time = 0;
@@ -175,7 +181,7 @@ GATTS.registerService(
           Cfg.set({ sensors: { p_out_min: Sensors.p_out_min, p_out_max: Sensors.p_out_max, p_in_min: Sensors.p_in_min, p_in_max: Sensors.p_in_max } });
           Sensors.init();
         }
-        //cmd:3 - activate wifi for update fw {cmd:3, update:1}
+        //cmd:3 - activate update state {cmd:3, update:1}
         if (write_params.cmd === 3) {
           if (write_params.update === 1) {
             Cfg.set({wifi: {ap: {enable: true}}});
@@ -185,6 +191,7 @@ GATTS.registerService(
             Sys.reboot(500); 
           }
         }
+        
         print("write_params", JSON.stringify(write_params));
 
       }
@@ -207,24 +214,35 @@ GATTS.registerService(
     return GATT.STATUS_REQUEST_NOT_SUPPORTED;
   });
 //Измерение давления и запись в архив
-let blink = 0;
+let blink = 0; 
+let cnt56 = 0;
 Timer.set(1000, Timer.REPEAT, function () {
   if (blink === 1) {blink = 0;} else {blink = 1;}
   Sensors.measure_pressure();
   welding.pressure = Sensors.report().pressure;
+
+  //welding.pressure = getRandom(welding_param.sp_pressure[welding.state-1]-5,welding_param.sp_pressure[welding.state-1]+5);
   //ИНДИКАЦИЯ - Сварка невозможна - низкая температура окружающей среды
   if (welding.alert[3] === 1) {
     led_Ind[0] = 1;
   } else {
     led_Ind[0] = 0;
   }
-  if (welding.state > 0) {
+  if (welding.state > 0 ) {
     welding.cur_time = welding.cur_time + 1;
-    //welding.pressure = getRandom(welding_param.sp_pressure[welding.state-1]-5,welding_param.sp_pressure[welding.state-1]+5);
-    if (welding.cur_time < welding_param.state_time[welding.state - 1] + 600) {
-      arch_welding["s" + JSON.stringify(welding.state)] = arch_welding["s" + JSON.stringify(welding.state)] + Number2String(welding.pressure) + ";";
+    if (welding.state < 5) {
+        if (welding.cur_time < welding_param.state_time[welding.state - 1] + 600) {
+          arch_welding["s" + JSON.stringify(welding.state)] = arch_welding["s" + JSON.stringify(welding.state)] + Number2String(welding.pressure) + ";";
+      } 
+    } else {
+      cnt56 = cnt56 + 1;
+      if (cnt56 === 4 && welding.cur_time < welding_param.state_time[welding.state - 1] + 600) {
+        arch_welding["s" + JSON.stringify(welding.state)] = arch_welding["s" + JSON.stringify(welding.state)] + Number2String(welding.pressure) + ";";
+        cnt56 = 0;
+      }
     }
-    //ИНДИКАЦИЯ - До окончания этапа осталось 20 секунд
+
+      //ИНДИКАЦИЯ - До окончания этапа осталось 20 секунд
     if (welding.cur_time > welding_param.state_time[welding.state - 1] - 20) {
       welding.alert[1] = 1;
       led_Ind[2] = blink;
@@ -240,19 +258,31 @@ Timer.set(1000, Timer.REPEAT, function () {
       welding.alert[0] = 0;
       led_Ind[0] = 0;
     }
-  }
-  //ИНДИКАЦИЯ - подключения BLE клиента
-  if (ble_conn === 1) {
-    led_Ind[3] = 1;
   } else {
-    led_Ind[3] = 0;
+    welding.alert[1] = 0;
+    led_Ind[2] = 0;
+    welding.alert[0] = 0;
+    led_Ind[0] = 0;
+  }
+
+  
+
+  //ИНДИКАЦИЯ - подключения BLE клиента и включение режима обновления
+  if (updateMode) {
+    led_Ind[3] = blink;
+  } else {
+    if (ble_conn === 1) {
+      led_Ind[3] = 1;
+    } else {
+      led_Ind[3] = 0;
+    }
   }
 
   //ИНДИКАЦИЯ - Низкий заряд батареи
   if (welding.alert[2] === 1) {
-    led_Ind[1] = 1;
+    led_Ind[1] = blink;
   } else {
-    led_Ind[1] = 0;
+    led_Ind[1] = 1;
   }
   Led.set_ind_led(led_Ind);
   
@@ -270,7 +300,7 @@ Timer.set(10000, Timer.REPEAT, function () {
 
   Sensors.measure_voltage();
   welding.bat_voltage = Sensors.report().voltage;
-  if (welding.bat_voltage < 3) {
+  if (welding.bat_voltage < 3.5) {
     welding.alert[2] = 1;
   } else {
     welding.alert[2] = 0;
@@ -309,11 +339,17 @@ GPIO.set_button_handler(NextButton, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 100,
         welding.state = welding.state + 1;
         welding.cur_time = 0;
       } else {
+        welding_param.end_ts = welding_param.begin_ts;
+        for (let i = 0; i < welding_param.state_num; i++) {
+          welding_param.end_ts = welding_param.end_ts + welding_param.actual_time[i];
+        }
         welding.state = 0
+        welding.cur_time = 0;
       }
     }
   Led.set_state_led(welding.state);  
   }, null);
+
   /*
 function splitString(inTxt, sepChr) {
 let pos = inTxt.indexOf(sepChr);

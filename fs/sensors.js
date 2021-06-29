@@ -17,7 +17,8 @@ let Sensors = {
   p_in_min: 4,
   p_in_max: 20,
   p_out_min: 0,
-  p_out_max: 80,
+  p_out_max: 16,
+
   // инициализация датчиков
   init: function () {
     //датчик давления
