@@ -1,6 +1,6 @@
 author: mongoose-os
 description: A Mongoose OS app skeleton
-version: 1.1
+version: 1.2
 
 libs_version: ${mos.version}
 modules_version: ${mos.version}
@@ -49,6 +49,8 @@ config_schema:
 
 libs:
   - origin: https://github.com/mongoose-os-libs/bt-common
+  - origin: https://github.com/mongoose-os-libs/rpc-common
+  - origin: https://github.com/mongoose-os-libs/rpc-loopback
   - origin: https://github.com/mongoose-os-libs/rpc-service-config
   - origin: https://github.com/mongoose-os-libs/rpc-service-fs
   - origin: https://github.com/mongoose-os-libs/rpc-uart
@@ -66,8 +68,8 @@ config_schema:
   - ["bt.keep_enabled", true]
   - ["bt.dev_name", "volzhanin_??????"]
   - ["wifi.ap.enable", false]
-  - ["wifi.ap.ssid", "update_??????"]
-  - ["wifi.ap.pass", "volzhanin"]
+  - ["wifi.ap.ssid", "volzhanin_??????"]
+  - ["wifi.ap.pass", ""]
   - ["i2c.enable", true]
   - ["debug.level", 2 ]
   - ["sensors.p_out_min", "i", 0, {title: "Minimum OUT Pressure"}]

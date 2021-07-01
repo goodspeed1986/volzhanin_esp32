@@ -3,16 +3,25 @@ load('api_events.js');
 load('api_gpio.js');
 load('api_timer.js');
 load('api_sys.js');
+load('api_rpc.js');
 load('api_math.js');
 load('api_bt_gatts.js');
 load('sensors.js');
 
-//let btn = Cfg.get('board.btn1.pin');              // Built-in button GPIO
-let updateMode = Cfg.get('wifi.ap.enable'); 
+let updateMode = 0;
+if (Cfg.get('wifi.ap.enable')) {
+  updateMode = 1;
+} else {
+  updateMode = 0;
+}
+let fw_version = "";
+RPC.call(RPC.LOCAL, 'Sys.GetInfo', null, function (resp) {
+  fw_version = resp.fw_version;
+}, null);
 
 let led_Ind = [0, 1, 0, 0]; //"alarm", "battery", "button", "ble"
 Led.set_ind_led(led_Ind);
-Led.set_state_led(0); 
+Led.set_state_led(0);
 //let ledBlinkRED = 5; // leds
 //let ledBlinkGREEN = 2;// leds
 //let ledBlinkBLUE = 4;// leds
@@ -83,12 +92,14 @@ let subscriber = undefined;
 //8fbd742c-3d7d-4a94-839e-45c265a2e7f9 main
 //67a4eeb9-98f1-4186-8717-df670471d68b archive
 //4e75c6fe-d008-49f2-b182-fe231eed747c welding
+//c2232013-e3e9-4e3c-8a62-7e708dc0cbbc update
 GATTS.registerService(
   "8fbd742c-3d7d-4a94-839e-45c265a2e7f9",
   GATT.SEC_LEVEL_NONE,
   [
     ["67a4eeb9-98f1-4186-8717-df670471d68b", GATT.PROP_RWNI(1, 1, 0, 0)],
     ["4e75c6fe-d008-49f2-b182-fe231eed747c", GATT.PROP_RWNI(1, 1, 1, 0)],
+    ["c2232013-e3e9-4e3c-8a62-7e708dc0cbbc", GATT.PROP_RWNI(1, 1, 0, 0)]
   ],
   function svch(c, ev, arg) {
     //print(JSON.stringify(c), ev, arg, JSON.stringify(arg));
@@ -124,8 +135,14 @@ GATTS.registerService(
         }
         str2 = str2 + JSON.stringify(welding_param.begin_ts) + ";";
         str2 = str2 + JSON.stringify(welding_param.end_ts);
-
-          GATTS.sendRespData(c, arg, str2);
+        GATTS.sendRespData(c, arg, str2);
+        //READ CURRENT FIRMWARE VERSION OF DEVICE (fw_version)
+        //1.1;
+      } else if (arg.uuid === "c2232013-e3e9-4e3c-8a62-7e708dc0cbbc") {
+        let str3 = "";
+        str3 = JSON.stringify(updateMode) + ";";
+        str3 = str3 + fw_version + ";";
+        GATTS.sendRespData(c, arg, str3);
       }
       return GATT.STATUS_OK;
     } else if (ev === GATTS.EV_WRITE) {
@@ -170,7 +187,7 @@ GATTS.registerService(
           }
           welding.state = write_params.state;
           welding.cur_time = 0;
-          Led.set_state_led(welding.state); 
+          Led.set_state_led(welding.state);
         }
         //cmd:2 - sensor param {cmd:2, sensors: {p_out_min:0, p_out_max:16, p_in_min:4, p_in_max:20}}
         if (write_params.cmd === 2) {
@@ -181,18 +198,18 @@ GATTS.registerService(
           Cfg.set({ sensors: { p_out_min: Sensors.p_out_min, p_out_max: Sensors.p_out_max, p_in_min: Sensors.p_in_min, p_in_max: Sensors.p_in_max } });
           Sensors.init();
         }
-        //cmd:3 - activate update state {cmd:3, update:1}
-        if (write_params.cmd === 3) {
-          if (write_params.update === 1) {
-            Cfg.set({wifi: {ap: {enable: true}}});
-            Sys.reboot(500); 
-          } else {
-            Cfg.set({wifi: {ap: {enable: false}}});
-            Sys.reboot(500); 
-          }
-        }
-        
         print("write_params", JSON.stringify(write_params));
+        //WRITE UPDATE PARAMS TO DEVICE
+      } else if (arg.uuid === "c2232013-e3e9-4e3c-8a62-7e708dc0cbbc") {
+        let update_params = JSON.parse(arg.data);
+        //activate update state {update:1}
+        if (update_params.update === 1) {
+          Cfg.set({ wifi: { ap: { enable: true } } });
+          Sys.reboot(500);
+        } else {
+          Cfg.set({ wifi: { ap: { enable: false } } });
+          Sys.reboot(500);
+        }
 
       }
       return GATT.STATUS_OK;
@@ -214,10 +231,10 @@ GATTS.registerService(
     return GATT.STATUS_REQUEST_NOT_SUPPORTED;
   });
 //Измерение давления и запись в архив
-let blink = 0; 
+let blink = 0;
 let cnt56 = 0;
 Timer.set(1000, Timer.REPEAT, function () {
-  if (blink === 1) {blink = 0;} else {blink = 1;}
+  if (blink === 1) { blink = 0; } else { blink = 1; }
   Sensors.measure_pressure();
   welding.pressure = Sensors.report().pressure;
 
@@ -228,12 +245,12 @@ Timer.set(1000, Timer.REPEAT, function () {
   } else {
     led_Ind[0] = 0;
   }
-  if (welding.state > 0 ) {
+  if (welding.state > 0) {
     welding.cur_time = welding.cur_time + 1;
     if (welding.state < 5) {
-        if (welding.cur_time < welding_param.state_time[welding.state - 1] + 600) {
-          arch_welding["s" + JSON.stringify(welding.state)] = arch_welding["s" + JSON.stringify(welding.state)] + Number2String(welding.pressure) + ";";
-      } 
+      if (welding.cur_time < welding_param.state_time[welding.state - 1] + 600) {
+        arch_welding["s" + JSON.stringify(welding.state)] = arch_welding["s" + JSON.stringify(welding.state)] + Number2String(welding.pressure) + ";";
+      }
     } else {
       cnt56 = cnt56 + 1;
       if (cnt56 === 4 && welding.cur_time < welding_param.state_time[welding.state - 1] + 600) {
@@ -242,7 +259,7 @@ Timer.set(1000, Timer.REPEAT, function () {
       }
     }
 
-      //ИНДИКАЦИЯ - До окончания этапа осталось 20 секунд
+    //ИНДИКАЦИЯ - До окончания этапа осталось 20 секунд
     if (welding.cur_time > welding_param.state_time[welding.state - 1] - 20) {
       welding.alert[1] = 1;
       led_Ind[2] = blink;
@@ -251,7 +268,7 @@ Timer.set(1000, Timer.REPEAT, function () {
       led_Ind[2] = 0;
     }
     //ИНДИКАЦИЯ - Давление вне диапазона +-10%
-    if (welding.pressure < welding_param.sp_pressure[welding.state-1] * 0.9 || welding.pressure > welding_param.sp_pressure[welding.state-1] * 1.1) {
+    if (welding.pressure < welding_param.sp_pressure[welding.state - 1] * 0.9 || welding.pressure > welding_param.sp_pressure[welding.state - 1] * 1.1) {
       welding.alert[0] = 1;
       led_Ind[0] = blink;
     } else {
@@ -265,10 +282,10 @@ Timer.set(1000, Timer.REPEAT, function () {
     led_Ind[0] = 0;
   }
 
-  
+
 
   //ИНДИКАЦИЯ - подключения BLE клиента и включение режима обновления
-  if (updateMode) {
+  if (updateMode === 1) {
     led_Ind[3] = blink;
   } else {
     if (ble_conn === 1) {
@@ -285,7 +302,7 @@ Timer.set(1000, Timer.REPEAT, function () {
     led_Ind[1] = 1;
   }
   Led.set_ind_led(led_Ind);
-  
+
 }, null);
 
 Timer.set(10000, Timer.REPEAT, function () {
@@ -347,10 +364,10 @@ GPIO.set_button_handler(NextButton, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 100,
         welding.cur_time = 0;
       }
     }
-  Led.set_state_led(welding.state);  
+    Led.set_state_led(welding.state);
   }, null);
 
-  /*
+/*
 function splitString(inTxt, sepChr) {
 let pos = inTxt.indexOf(sepChr);
 let out = [];

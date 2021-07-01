@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.19.1/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_700979280/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/2.19.1/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_700979280/build/gen/mos_conf_schema.yml
+ * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.19.1/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_737444166/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/2.19.1/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_737444166/build/gen/mos_conf_schema.yml
  */
 
 #include "mgos_config.h"
@@ -381,8 +381,8 @@ const struct mgos_conf_entry *mgos_config_wifi_ap_get_schema(void) {
 
 void mgos_config_wifi_ap_set_defaults(struct mgos_config_wifi_ap *cfg) {
   cfg->enable = false;
-  cfg->ssid = "update_??????";
-  cfg->pass = "volzhanin";
+  cfg->ssid = "volzhanin_??????";
+  cfg->pass = NULL;
   cfg->hidden = false;
   cfg->channel = 6;
   cfg->max_connections = 10;
@@ -1031,12 +1031,12 @@ void mgos_config_set_wifi_ap_enable(struct mgos_config *cfg, int v) { cfg->wifi.
 
 /* wifi.ap.ssid */
 const char * mgos_config_get_wifi_ap_ssid(const struct mgos_config *cfg) { return cfg->wifi.ap.ssid; }
-const char * mgos_config_get_default_wifi_ap_ssid(void) { return "update_??????"; }
+const char * mgos_config_get_default_wifi_ap_ssid(void) { return "volzhanin_??????"; }
 void mgos_config_set_wifi_ap_ssid(struct mgos_config *cfg, const char * v) { mgos_conf_set_str(&cfg->wifi.ap.ssid, v); }
 
 /* wifi.ap.pass */
 const char * mgos_config_get_wifi_ap_pass(const struct mgos_config *cfg) { return cfg->wifi.ap.pass; }
-const char * mgos_config_get_default_wifi_ap_pass(void) { return "volzhanin"; }
+const char * mgos_config_get_default_wifi_ap_pass(void) { return NULL; }
 void mgos_config_set_wifi_ap_pass(struct mgos_config *cfg, const char * v) { mgos_conf_set_str(&cfg->wifi.ap.pass, v); }
 
 /* wifi.ap.hidden */
@@ -1490,8 +1490,6 @@ static const char *mgos_config_str_table[] = {
   "RPC",
   "ca.pem",
   "esp32_??????",
-  "update_??????",
-  "volzhanin",
   "volzhanin_??????",
 };
 

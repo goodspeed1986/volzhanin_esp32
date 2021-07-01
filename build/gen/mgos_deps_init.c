@@ -28,6 +28,7 @@ extern bool mgos_ota_http_client_init(void);
 extern bool mgos_ota_http_server_init(void);
 extern bool mgos_pwm_init(void);
 extern bool mgos_rpc_common_init(void);
+extern bool mgos_rpc_loopback_init(void);
 extern bool mgos_rpc_service_config_init(void);
 extern bool mgos_rpc_service_fs_init(void);
 extern bool mgos_rpc_uart_init(void);
@@ -101,6 +102,9 @@ const struct mgos_lib_info mgos_libs_info[] = {
 
     // "rpc-common". deps: [ "core" "http-server" "mongoose" ]
     {.name = "rpc-common", .version = "1.0", .init = mgos_rpc_common_init},
+
+    // "rpc-loopback". deps: [ "core" "rpc-common" ]
+    {.name = "rpc-loopback", .version = "1.0", .init = mgos_rpc_loopback_init},
 
     // "rpc-service-config". deps: [ "core" "rpc-common" ]
     {.name = "rpc-service-config", .version = "1.0", .init = mgos_rpc_service_config_init},

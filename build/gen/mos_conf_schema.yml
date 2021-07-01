@@ -528,9 +528,9 @@
 - - wifi.ap.enable
   - false
 - - wifi.ap.ssid
-  - update_??????
+  - volzhanin_??????
 - - wifi.ap.pass
-  - volzhanin
+  - ""
 - - i2c.enable
   - true
 - - debug.level
