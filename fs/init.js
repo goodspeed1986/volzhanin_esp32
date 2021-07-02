@@ -240,7 +240,7 @@ Timer.set(1000, Timer.REPEAT, function () {
   if (blink === 1) { blink = 0; } else { blink = 1; }
   Sensors.measure_pressure();
   welding.pressure = Sensors.report().pressure;
-  if (emulator === 1) {welding.pressure = getRandom(welding_param.sp_pressure[welding.state-1]-5,welding_param.sp_pressure[welding.state-1]+5);}
+  
   //welding.pressure = getRandom(welding_param.sp_pressure[welding.state-1]-5,welding_param.sp_pressure[welding.state-1]+5);
   //ИНДИКАЦИЯ - Сварка невозможна - низкая температура окружающей среды
   if (welding.alert[3] === 1) {
@@ -249,6 +249,7 @@ Timer.set(1000, Timer.REPEAT, function () {
     led_Ind[0] = 0;
   }
   if (welding.state > 0) {
+    if (emulator === 1) {welding.pressure = getRandom(welding_param.sp_pressure[welding.state-1]-5,welding_param.sp_pressure[welding.state-1]+5);}
     welding.cur_time = welding.cur_time + 1;
     if (welding.state < 5) {
       if (welding.cur_time < welding_param.state_time[welding.state - 1] + 600) {
