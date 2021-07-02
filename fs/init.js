@@ -18,7 +18,7 @@ let fw_version = "";
 RPC.call(RPC.LOCAL, 'Sys.GetInfo', null, function (resp) {
   fw_version = resp.fw_version;
 }, null);
-
+let emulator = 0;
 let led_Ind = [0, 1, 0, 0]; //"alarm", "battery", "button", "ble"
 Led.set_ind_led(led_Ind);
 Led.set_state_led(0);
@@ -198,6 +198,9 @@ GATTS.registerService(
           Cfg.set({ sensors: { p_out_min: Sensors.p_out_min, p_out_max: Sensors.p_out_max, p_in_min: Sensors.p_in_min, p_in_max: Sensors.p_in_max } });
           Sensors.init();
         }
+        if (write_params.cmd === 3) {
+          emulator = write_params.emulator;
+        }
         print("write_params", JSON.stringify(write_params));
         //WRITE UPDATE PARAMS TO DEVICE
       } else if (arg.uuid === "c2232013-e3e9-4e3c-8a62-7e708dc0cbbc") {
@@ -237,7 +240,7 @@ Timer.set(1000, Timer.REPEAT, function () {
   if (blink === 1) { blink = 0; } else { blink = 1; }
   Sensors.measure_pressure();
   welding.pressure = Sensors.report().pressure;
-
+  if (emulator === 1) {welding.pressure = getRandom(welding_param.sp_pressure[welding.state-1]-5,welding_param.sp_pressure[welding.state-1]+5);}
   //welding.pressure = getRandom(welding_param.sp_pressure[welding.state-1]-5,welding_param.sp_pressure[welding.state-1]+5);
   //ИНДИКАЦИЯ - Сварка невозможна - низкая температура окружающей среды
   if (welding.alert[3] === 1) {
@@ -313,6 +316,8 @@ Timer.set(10000, Timer.REPEAT, function () {
   } else {
     welding.alert[3] = 0;
   }
+
+  if (emulator === 1) {welding.temperature = 24.5;}
   //welding.temperature = 24.5;
 
   Sensors.measure_voltage();
@@ -322,6 +327,7 @@ Timer.set(10000, Timer.REPEAT, function () {
   } else {
     welding.alert[2] = 0;
   }
+  if (emulator === 1) {welding.bat_voltage = 4.2}
   //welding.bat_voltage = 4.2;
   print("State:", JSON.stringify(welding.state), "Pressure:", JSON.stringify(welding.pressure), "Temperature:", JSON.stringify(welding.temperature), "Battery Voltage:", JSON.stringify(welding.bat_voltage));
 
