@@ -88,7 +88,7 @@ let Led = {
   ledState : [0x7F, 0xBF, 0xDF, 0xFB, 0xF7, 0xF7],
   ledInd : [0xFC, 0xFB, 0xE7, 0xDF],
   set_state_led: function (led_state) {
-    if (led_state > 0) {
+    if (led_state > 0 && led_state < 10) {
       I2C.writeRegB(bus, MCP23x17_I2C_address, IODIRB, 0x00);
       I2C.writeRegB(bus, MCP23x17_I2C_address, MGPIOB, this.ledState[led_state-1]);
       I2C.writeRegB(bus, MCP23x17_I2C_address, OLATB, this.ledState[led_state-1]);
