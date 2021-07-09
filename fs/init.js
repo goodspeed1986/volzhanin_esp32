@@ -115,6 +115,7 @@ GATTS.registerService(
         //"123456789";106;25;106;0;31.8;12;900;1800;40;9600;49;50;123456789;0
       } else if (arg.uuid === "4e75c6fe-d008-49f2-b182-fe231eed747c") {
         let str2 = "";
+        let str21 = "";
         str2 = JSON.stringify(welding_param.id) + ";";
         for (let i = 0; i < 6; i++) {
           str2 = str2 + JSON.stringify(Number2String(welding_param.sp_pressure[i])) + ";";
@@ -127,7 +128,8 @@ GATTS.registerService(
         }
         str2 = str2 + JSON.stringify(welding_param.begin_ts) + ";";
         str2 = str2 + JSON.stringify(welding_param.end_ts);
-        GATTS.sendRespData(c, arg, str2);
+        str21 = str2.slice(arg.offset, arg.offset + c.mtu - 1);
+        GATTS.sendRespData(c, arg, str21);
         //READ CURRENT FIRMWARE VERSION OF DEVICE (fw_version)
         //1.1;
       } else if (arg.uuid === "c2232013-e3e9-4e3c-8a62-7e708dc0cbbc") {
