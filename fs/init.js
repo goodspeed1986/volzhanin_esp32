@@ -112,11 +112,12 @@ GATTS.registerService(
         print("Offset", arg.offset + arch_welding.offset);
 
         //READ CURRENT STATE FROM DEVICE (welding_param)
-        //"123456789";106;25;106;0;31.8;12;900;1800;40;9600;49;50;123456789;0
+        //"123456789";106;25;106;0;31.8;0.0;12;900;1800;40;9600;0;12;900;1800;40;9600;0;123456789;0
       } else if (arg.uuid === "4e75c6fe-d008-49f2-b182-fe231eed747c") {
         let str2 = "";
         let str21 = "";
-        str2 = welding_param.id + ";";
+        str2 = JSON.stringify(welding.state) + ";"
+        str2 = str2 + welding_param.id + ";";
         for (let i = 0; i < 6; i++) {
           str2 = str2 + Number2String(welding_param.sp_pressure[i]) + ";";
         }
