@@ -116,9 +116,9 @@ GATTS.registerService(
       } else if (arg.uuid === "4e75c6fe-d008-49f2-b182-fe231eed747c") {
         let str2 = "";
         let str21 = "";
-        str2 = JSON.stringify(welding_param.id) + ";";
+        str2 = welding_param.id + ";";
         for (let i = 0; i < 6; i++) {
-          str2 = str2 + JSON.stringify(Number2String(welding_param.sp_pressure[i])) + ";";
+          str2 = str2 + Number2String(welding_param.sp_pressure[i]) + ";";
         }
         for (let i = 0; i < 6; i++) {
           str2 = str2 + JSON.stringify(welding_param.state_time[i]) + ";";
