@@ -283,6 +283,7 @@ Timer.set(1000, Timer.REPEAT, function () {
   } else {
     welding.alert[1] = 0;
     led_Ind[2] = 0;
+    GPIO.write(Buzzer, 0);
     welding.alert[0] = 0;
     led_Ind[0] = 0;
   }
