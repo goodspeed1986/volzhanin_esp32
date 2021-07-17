@@ -17,7 +17,7 @@ let Sensors = {
   p_in_min: 4,
   p_in_max: 20,
   p_out_min: 0,
-  p_out_max: 16,
+  p_out_max: 60,
 
   // инициализация датчиков
   init: function () {
@@ -57,6 +57,7 @@ let Sensors = {
     this.pressure = (20.48 * pressDist) / (/*4 * */32768); // измерение давления
     //Преобразования давления из 4..20 мА в бары
     this.pressure = (this.pressure - this.p_in_min) * (this.p_out_max - this.p_out_min) / (this.p_in_max - this.p_in_min) + this.p_out_min;
+    if (this.pressure < 0) {this.pressure = 0;}
     return;
   },
   measure_temperature: function () {

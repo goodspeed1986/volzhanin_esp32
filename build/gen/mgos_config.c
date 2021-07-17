@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.19.1/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_241312753/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/2.19.1/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_241312753/build/gen/mos_conf_schema.yml
+ * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.19.1/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_248154209/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/2.19.1/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_248154209/build/gen/mos_conf_schema.yml
  */
 
 #include "mgos_config.h"
@@ -565,7 +565,7 @@ const struct mgos_conf_entry *mgos_config_sensors_get_schema(void) {
 
 void mgos_config_sensors_set_defaults(struct mgos_config_sensors *cfg) {
   cfg->p_out_min = 0;
-  cfg->p_out_max = 16;
+  cfg->p_out_max = 60;
   cfg->p_in_min = 4;
   cfg->p_in_max = 20;
 }
@@ -1454,7 +1454,7 @@ void mgos_config_set_sensors_p_out_min(struct mgos_config *cfg, int v) { cfg->se
 
 /* sensors.p_out_max */
 int mgos_config_get_sensors_p_out_max(const struct mgos_config *cfg) { return cfg->sensors.p_out_max; }
-int mgos_config_get_default_sensors_p_out_max(void) { return 16; }
+int mgos_config_get_default_sensors_p_out_max(void) { return 60; }
 void mgos_config_set_sensors_p_out_max(struct mgos_config *cfg, int v) { cfg->sensors.p_out_max = v; }
 
 /* sensors.p_in_min */

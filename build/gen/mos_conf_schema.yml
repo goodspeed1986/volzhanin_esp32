@@ -541,7 +541,7 @@
   - title: Minimum OUT Pressure
 - - sensors.p_out_max
   - i
-  - 16
+  - 60
   - title: Maximum OUT Pressure
 - - sensors.p_in_min
   - i

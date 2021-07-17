@@ -1,4 +1,4 @@
 {
-    "mos.port": "COM6",
+    "mos.port": "COM4",
     "mos.board": "ESP32"
 }
