@@ -10,7 +10,6 @@ load('sensors.js');
 
 let updateMode = 0;
 if (Cfg.get('wifi.ap.enable')) { updateMode = 1; } else { updateMode = 0; }
-//updateMode = Cfg.get('wifi.ap.enable') ? 1 : 0 ;
 let fw_version = "";
 RPC.call(RPC.LOCAL, 'Sys.GetInfo', null, function (resp) {
   fw_version = resp.fw_version;
@@ -118,7 +117,7 @@ GATTS.registerService(
         str2 = JSON.stringify(welding.state) + ";"
         str2 = str2 + welding_param.id + ";";
         for (let i = 0; i < 6; i++) {
-          str2 = str2 + JSON.stringify(welding_param.sp_pressure[i]) + ";";
+          str2 = str2 + Number2String(welding_param.sp_pressure[i]) + ";";
         }
         for (let i = 0; i < 6; i++) {
           str2 = str2 + JSON.stringify(welding_param.state_time[i]) + ";";
@@ -194,6 +193,7 @@ GATTS.registerService(
             welding_param.end_ts = welding_param.begin_ts;
             for (let i = 0; i < welding_param.state_num; i++) {
               welding_param.end_ts = welding_param.end_ts + welding_param.actual_time[i];
+
             }
           }
           
@@ -386,7 +386,7 @@ Timer.set(10000, Timer.REPEAT, function () {
     welding.alert[2] = 0;
   }
   
-  print("State:", JSON.stringify(welding.state), "Pressure:", JSON.stringify(welding.pressure), "Temperature:", JSON.stringify(welding.temperature), "Battery Voltage:", JSON.stringify(welding.bat_voltage));
+  print("State:", JSON.stringify(welding.state), "Pressure:", Number2String(welding.pressure), "Temperature:", Number2String(welding.temperature), "Battery Voltage:", Number2String(welding.bat_voltage));
 
 }, null);
 
@@ -407,7 +407,7 @@ function Number2String(num) {
   let str = "";
   str = JSON.stringify(num);
   let pt = str.indexOf('.');
-  return str.slice(0, pt + 2);
+  return pt > 0 ? str.slice(0, pt + 2) : str;
 }
 
 GPIO.set_button_handler(NextButton, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 100, function () {

@@ -22,14 +22,11 @@ let Sensors = {
   // инициализация датчиков
   init: function () {
     //датчик давления
-    //ads.setGain(0x04E3);
-    //ads.begin();
-    //датчик температуры
     this.p_in_min = Cfg.get('sensors.p_in_min');
     this.p_in_max = Cfg.get('sensors.p_in_max');
     this.p_out_min = Cfg.get('sensors.p_out_min');
     this.p_out_max = Cfg.get('sensors.p_out_max');
-
+    //датчик температуры
     ow.target_search(DEVICE_FAMILY.DS18B20);
     ow.search(this.tempAddr, 0);
     return;
@@ -50,9 +47,6 @@ let Sensors = {
       I2C.writeRegW(bus, ADS1X15_I2C_addresss, 0x00, 0x0000);
       I2C.stop(bus);
       pressDist += I2C.readRegW(bus, ADS1X15_I2C_addresss, 0x00);
-      //pressDist += ads.readADC_Differential_0_1();
-      //Sys.usleep(250000);
-      // задержка между измерениями в датчике давления
     //}
     this.pressure = (20.48 * pressDist) / (/*4 * */32768); // измерение давления
     //Преобразования давления из 4..20 мА в бары
@@ -61,7 +55,12 @@ let Sensors = {
     return;
   },
   measure_temperature: function () {
-    this.temperature = getTemp(ow, this.tempAddr);
+    if (getTemp(ow, this.tempAddr) < 60) {
+      this.temperature = getTemp(ow, this.tempAddr);
+    } else {
+      this.temperature = 60;
+    }
+    
     return;
   },
   measure_voltage: function () {
