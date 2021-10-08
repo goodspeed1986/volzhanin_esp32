@@ -8,6 +8,7 @@
 #include "mgos_app.h"
 
 extern bool mgos_freertos_init(void);
+extern bool mgos_lwip_init(void);
 extern bool mgos_mongoose_init(void);
 extern bool mgos_ota_common_init(void);
 extern bool mgos_vfs_common_init(void);
@@ -61,25 +62,32 @@ const struct mgos_lib_info mgos_libs_info[] = {
     {.name = "freertos", .version = "10.2.0", .repo_version = "f4b5ba5336f2f0fe3b183527790cf82e0644364e", .binary_libs = NULL, .init = mgos_freertos_init},
 #endif
 
-    // "mongoose". deps: [ ]
+    // "lwip". deps: [ "freertos" ]
+#if MGOS_LIB_INFO_VERSION == 1
+    {.name = "lwip", .version = "2.1.2", .init = mgos_lwip_init},
+#else
+    {.name = "lwip", .version = "2.1.2", .repo_version = "2cff4ac32b5c9c4d4481123d99b29c59a84afc6c", .binary_libs = NULL, .init = mgos_lwip_init},
+#endif
+
+    // "mongoose". deps: [ "lwip" ]
 #if MGOS_LIB_INFO_VERSION == 1
     {.name = "mongoose", .version = "6.18", .init = mgos_mongoose_init},
 #else
-    {.name = "mongoose", .version = "6.18", .repo_version = "24f3c520fdfd5d7c33ff2734d4be42aab75107e9", .binary_libs = "libmongoose-esp32-latest.a:30373834376439336161396434323637626539633762353136356563623962393361396561333561366536396562326533656132376332373837616634306537", .init = mgos_mongoose_init},
+    {.name = "mongoose", .version = "6.18", .repo_version = "24f3c520fdfd5d7c33ff2734d4be42aab75107e9", .binary_libs = "libmongoose-esp32-latest.a:66623038316536663039613461613230373430336437613763616231326330646162653538356364356133396530623061646338656534653237643633636664", .init = mgos_mongoose_init},
 #endif
 
     // "ota-common". deps: [ ]
 #if MGOS_LIB_INFO_VERSION == 1
-    {.name = "ota-common", .version = "1.2.3", .init = mgos_ota_common_init},
+    {.name = "ota-common", .version = "1.4.0", .init = mgos_ota_common_init},
 #else
-    {.name = "ota-common", .version = "1.2.3", .repo_version = "4f8667732ba9e570effae03406647f91165afbf6", .binary_libs = "libota-common-esp32-latest.a:30396430656338646434616433333339633039363139663438373535633139346631326537656136626337383666656436326138393963336438633939326331", .init = mgos_ota_common_init},
+    {.name = "ota-common", .version = "1.4.0", .repo_version = "a164ef6cf5f815b8ddd51b637f68f809a4840647", .binary_libs = "libota-common-esp32-latest.a:33643062663065373665383039303163343637396532633864613164393237623639343835386138346330643065373034353563646538643437326236323262", .init = mgos_ota_common_init},
 #endif
 
     // "vfs-common". deps: [ ]
 #if MGOS_LIB_INFO_VERSION == 1
     {.name = "vfs-common", .version = "1.0", .init = mgos_vfs_common_init},
 #else
-    {.name = "vfs-common", .version = "1.0", .repo_version = "cbd2bd6506628a46d050dbd9d21c89e4329bfe0c", .binary_libs = NULL, .init = mgos_vfs_common_init},
+    {.name = "vfs-common", .version = "1.0", .repo_version = "9ac6a62cdf84e39f0246658d9d4c07f66516b4e4", .binary_libs = NULL, .init = mgos_vfs_common_init},
 #endif
 
     // "vfs-fs-lfs". deps: [ "vfs-common" ]
@@ -96,11 +104,11 @@ const struct mgos_lib_info mgos_libs_info[] = {
     {.name = "vfs-fs-spiffs", .version = "1.0", .repo_version = "0c1d9d07a4bf900f08ca4a250e29e7f5931301c5", .binary_libs = NULL, .init = mgos_vfs_fs_spiffs_init},
 #endif
 
-    // "core". deps: [ "freertos" "mongoose" "ota-common" "vfs-common" "vfs-fs-lfs" "vfs-fs-spiffs" ]
+    // "core". deps: [ "freertos" "lwip" "mongoose" "ota-common" "vfs-common" "vfs-fs-lfs" "vfs-fs-spiffs" ]
 #if MGOS_LIB_INFO_VERSION == 1
     {.name = "core", .version = "1.0", .init = mgos_core_init},
 #else
-    {.name = "core", .version = "1.0", .repo_version = "aab58b78602eda6587c2cc81b7981a91a28d3356", .binary_libs = NULL, .init = mgos_core_init},
+    {.name = "core", .version = "1.0", .repo_version = "9cbb8437919696a4a8779ebb4d0cd78d99890ac6", .binary_libs = NULL, .init = mgos_core_init},
 #endif
 
     // "arduino-compat". deps: [ "core" ]
@@ -131,11 +139,11 @@ const struct mgos_lib_info mgos_libs_info[] = {
     {.name = "bt-common", .version = "1.0", .repo_version = "13b21bac18780f8f64a2b23a8d0db6ed99301a47", .binary_libs = NULL, .init = mgos_bt_common_init},
 #endif
 
-    // "wifi". deps: [ "core" ]
+    // "wifi". deps: [ "core" "lwip" ]
 #if MGOS_LIB_INFO_VERSION == 1
     {.name = "wifi", .version = "1.0", .init = mgos_wifi_init},
 #else
-    {.name = "wifi", .version = "1.0", .repo_version = "5d9f876c81f10fc7e56d435ef06b844e0b7a7305", .binary_libs = NULL, .init = mgos_wifi_init},
+    {.name = "wifi", .version = "1.0", .repo_version = "ce1e294c5f07b011c9a554e2d5638ae14f017a76", .binary_libs = NULL, .init = mgos_wifi_init},
 #endif
 
     // "http-server". deps: [ "core" "wifi" ]
@@ -154,30 +162,30 @@ const struct mgos_lib_info mgos_libs_info[] = {
 
     // "mbedtls". deps: [ ]
 #if MGOS_LIB_INFO_VERSION == 1
-    {.name = "mbedtls", .version = "2.16.6-cesanta2", .init = mgos_mbedtls_init},
+    {.name = "mbedtls", .version = "2.16.11-cesanta1", .init = mgos_mbedtls_init},
 #else
-    {.name = "mbedtls", .version = "2.16.6-cesanta2", .repo_version = "2813188ba8d1f955c9df75faeb72f1d67904e2c0", .binary_libs = NULL, .init = mgos_mbedtls_init},
+    {.name = "mbedtls", .version = "2.16.11-cesanta1", .repo_version = "286b31adcd885d4d0f6e6db82efe1c0928ae1173", .binary_libs = NULL, .init = mgos_mbedtls_init},
 #endif
 
     // "mjs". deps: [ "core" ]
 #if MGOS_LIB_INFO_VERSION == 1
     {.name = "mjs", .version = "1.0.0", .init = mgos_mjs_init},
 #else
-    {.name = "mjs", .version = "1.0.0", .repo_version = "8d2f612a80763edb0610bf2ddbbc84ad63780044", .binary_libs = NULL, .init = mgos_mjs_init},
+    {.name = "mjs", .version = "1.0.0", .repo_version = "dc7442685da3d1b1b06fbf4102905a2fece286ee", .binary_libs = NULL, .init = mgos_mjs_init},
 #endif
 
     // "ota-http-client". deps: [ "core" "ota-common" ]
 #if MGOS_LIB_INFO_VERSION == 1
     {.name = "ota-http-client", .version = "1.0.1", .init = mgos_ota_http_client_init},
 #else
-    {.name = "ota-http-client", .version = "1.0.1", .repo_version = "d6088c559c603f74a645a8b0dff135723c994f2d", .binary_libs = "libota-http-client-esp32-latest.a:33653332313838303235373665383066626465396638356236616135613265346338353261663432393536303633613761613632393866363339653833373432", .init = mgos_ota_http_client_init},
+    {.name = "ota-http-client", .version = "1.0.1", .repo_version = "d6088c559c603f74a645a8b0dff135723c994f2d", .binary_libs = "libota-http-client-esp32-latest.a:61366439646130623963366530363433306263613631336365653533633365656364303964343332326139393638643965323230613437363965323438313533", .init = mgos_ota_http_client_init},
 #endif
 
     // "ota-http-server". deps: [ "core" "http-server" "ota-common" "ota-http-client" ]
 #if MGOS_LIB_INFO_VERSION == 1
     {.name = "ota-http-server", .version = "1.0", .init = mgos_ota_http_server_init},
 #else
-    {.name = "ota-http-server", .version = "1.0", .repo_version = "6adb6f6bf66390a6adf7defb2f85c1f7d3aaea60", .binary_libs = "libota-http-server-esp32-latest.a:33323934333165373637626633633630363166396262366331313639363132356266656636323232373466356561363231306638316131303663316439666261", .init = mgos_ota_http_server_init},
+    {.name = "ota-http-server", .version = "1.0", .repo_version = "6adb6f6bf66390a6adf7defb2f85c1f7d3aaea60", .binary_libs = "libota-http-server-esp32-latest.a:36393963323563386230663231386232353866363935386335613638666434656134323832333438643232323965633536613331393430663033613338376663", .init = mgos_ota_http_server_init},
 #endif
 
     // "pwm". deps: [ "core" ]
@@ -191,7 +199,7 @@ const struct mgos_lib_info mgos_libs_info[] = {
 #if MGOS_LIB_INFO_VERSION == 1
     {.name = "rpc-common", .version = "1.0", .init = mgos_rpc_common_init},
 #else
-    {.name = "rpc-common", .version = "1.0", .repo_version = "79aea0d79d5180030b81b783bc31da445bb4e001", .binary_libs = NULL, .init = mgos_rpc_common_init},
+    {.name = "rpc-common", .version = "1.0", .repo_version = "17383b6f5e51d8113e6b7dc0a7c7958b8a567bf1", .binary_libs = NULL, .init = mgos_rpc_common_init},
 #endif
 
     // "rpc-loopback". deps: [ "core" "rpc-common" ]
@@ -219,14 +227,14 @@ const struct mgos_lib_info mgos_libs_info[] = {
 #if MGOS_LIB_INFO_VERSION == 1
     {.name = "rpc-uart", .version = "1.0", .init = mgos_rpc_uart_init},
 #else
-    {.name = "rpc-uart", .version = "1.0", .repo_version = "34442fa1081f912a70f72166229b570c0f5a0aa8", .binary_libs = NULL, .init = mgos_rpc_uart_init},
+    {.name = "rpc-uart", .version = "1.0", .repo_version = "691aa994fe778248a2ffb6a6d1e763120a967cd7", .binary_libs = NULL, .init = mgos_rpc_uart_init},
 #endif
 
     // "zz_boards". deps: [ ]
 #if MGOS_LIB_INFO_VERSION == 1
     {.name = "zz_boards", .version = NULL, .init = NULL},
 #else
-    {.name = "zz_boards", .version = NULL, .repo_version = "33d12fa93de257bed97066dfe1c19d484e73cbc8", .binary_libs = NULL, .init = NULL},
+    {.name = "zz_boards", .version = NULL, .repo_version = "a317361ee008969b8a96a2e7fa7eb243442dcb93", .binary_libs = NULL, .init = NULL},
 #endif
 
     // Last entry.
@@ -235,11 +243,11 @@ const struct mgos_lib_info mgos_libs_info[] = {
 
 const struct mgos_module_info mgos_modules_info[] = {
 
-    {.name = "mbedtls_module", .repo_version = "8bb04f1a81ecac8c56e038501eb008275b094e9c"},
+    {.name = "mbedtls_module", .repo_version = "74d761821fd23ea220eb552ece941908c2f48a39"},
 
     {.name = "mjs_module", .repo_version = "52f4912e68cd5cd0ee3f0e02f0ad635d15b5e21e"},
 
-    {.name = "mongoose-os", .repo_version = "a0be0b3ed6c953437bcac23c38515a6a2ec464c1"},
+    {.name = "mongoose-os", .repo_version = "604e1d23c95c7ccecfa2adff3d606d9631b36d73"},
 
     // Last entry.
     {.name = NULL},

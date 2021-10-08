@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_749502756/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_749502756/build/gen/mos_conf_schema.yml
+ * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_869024881/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_869024881/build/gen/mos_conf_schema.yml
  */
 
 #pragma once
@@ -267,6 +267,15 @@ static inline void mgos_config_http_free(struct mgos_config_http *cfg) {
 struct mgos_config_update {
   int timeout;
   int commit_timeout;
+  const char * key0;
+  const char * key1;
+  const char * key2;
+  const char * key3;
+  const char * key4;
+  const char * key5;
+  const char * key6;
+  const char * key7;
+  int sig_req_mask;
   const char * url;
   int interval;
   const char * extra_http_headers;
@@ -1377,6 +1386,96 @@ static inline int mgos_sys_config_get_update_commit_timeout(void) { return mgos_
 static inline int mgos_sys_config_get_default_update_commit_timeout(void) { return mgos_config_get_default_update_commit_timeout(); }
 void mgos_config_set_update_commit_timeout(struct mgos_config *cfg, int v);
 static inline void mgos_sys_config_set_update_commit_timeout(int v) { mgos_config_set_update_commit_timeout(&mgos_sys_config, v); }
+
+/* update.key0 */
+#define MGOS_CONFIG_HAVE_UPDATE_KEY0
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_KEY0
+const char * mgos_config_get_update_key0(const struct mgos_config *cfg);
+const char * mgos_config_get_default_update_key0(void);
+static inline const char * mgos_sys_config_get_update_key0(void) { return mgos_config_get_update_key0(&mgos_sys_config); }
+static inline const char * mgos_sys_config_get_default_update_key0(void) { return mgos_config_get_default_update_key0(); }
+void mgos_config_set_update_key0(struct mgos_config *cfg, const char * v);
+static inline void mgos_sys_config_set_update_key0(const char * v) { mgos_config_set_update_key0(&mgos_sys_config, v); }
+
+/* update.key1 */
+#define MGOS_CONFIG_HAVE_UPDATE_KEY1
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_KEY1
+const char * mgos_config_get_update_key1(const struct mgos_config *cfg);
+const char * mgos_config_get_default_update_key1(void);
+static inline const char * mgos_sys_config_get_update_key1(void) { return mgos_config_get_update_key1(&mgos_sys_config); }
+static inline const char * mgos_sys_config_get_default_update_key1(void) { return mgos_config_get_default_update_key1(); }
+void mgos_config_set_update_key1(struct mgos_config *cfg, const char * v);
+static inline void mgos_sys_config_set_update_key1(const char * v) { mgos_config_set_update_key1(&mgos_sys_config, v); }
+
+/* update.key2 */
+#define MGOS_CONFIG_HAVE_UPDATE_KEY2
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_KEY2
+const char * mgos_config_get_update_key2(const struct mgos_config *cfg);
+const char * mgos_config_get_default_update_key2(void);
+static inline const char * mgos_sys_config_get_update_key2(void) { return mgos_config_get_update_key2(&mgos_sys_config); }
+static inline const char * mgos_sys_config_get_default_update_key2(void) { return mgos_config_get_default_update_key2(); }
+void mgos_config_set_update_key2(struct mgos_config *cfg, const char * v);
+static inline void mgos_sys_config_set_update_key2(const char * v) { mgos_config_set_update_key2(&mgos_sys_config, v); }
+
+/* update.key3 */
+#define MGOS_CONFIG_HAVE_UPDATE_KEY3
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_KEY3
+const char * mgos_config_get_update_key3(const struct mgos_config *cfg);
+const char * mgos_config_get_default_update_key3(void);
+static inline const char * mgos_sys_config_get_update_key3(void) { return mgos_config_get_update_key3(&mgos_sys_config); }
+static inline const char * mgos_sys_config_get_default_update_key3(void) { return mgos_config_get_default_update_key3(); }
+void mgos_config_set_update_key3(struct mgos_config *cfg, const char * v);
+static inline void mgos_sys_config_set_update_key3(const char * v) { mgos_config_set_update_key3(&mgos_sys_config, v); }
+
+/* update.key4 */
+#define MGOS_CONFIG_HAVE_UPDATE_KEY4
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_KEY4
+const char * mgos_config_get_update_key4(const struct mgos_config *cfg);
+const char * mgos_config_get_default_update_key4(void);
+static inline const char * mgos_sys_config_get_update_key4(void) { return mgos_config_get_update_key4(&mgos_sys_config); }
+static inline const char * mgos_sys_config_get_default_update_key4(void) { return mgos_config_get_default_update_key4(); }
+void mgos_config_set_update_key4(struct mgos_config *cfg, const char * v);
+static inline void mgos_sys_config_set_update_key4(const char * v) { mgos_config_set_update_key4(&mgos_sys_config, v); }
+
+/* update.key5 */
+#define MGOS_CONFIG_HAVE_UPDATE_KEY5
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_KEY5
+const char * mgos_config_get_update_key5(const struct mgos_config *cfg);
+const char * mgos_config_get_default_update_key5(void);
+static inline const char * mgos_sys_config_get_update_key5(void) { return mgos_config_get_update_key5(&mgos_sys_config); }
+static inline const char * mgos_sys_config_get_default_update_key5(void) { return mgos_config_get_default_update_key5(); }
+void mgos_config_set_update_key5(struct mgos_config *cfg, const char * v);
+static inline void mgos_sys_config_set_update_key5(const char * v) { mgos_config_set_update_key5(&mgos_sys_config, v); }
+
+/* update.key6 */
+#define MGOS_CONFIG_HAVE_UPDATE_KEY6
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_KEY6
+const char * mgos_config_get_update_key6(const struct mgos_config *cfg);
+const char * mgos_config_get_default_update_key6(void);
+static inline const char * mgos_sys_config_get_update_key6(void) { return mgos_config_get_update_key6(&mgos_sys_config); }
+static inline const char * mgos_sys_config_get_default_update_key6(void) { return mgos_config_get_default_update_key6(); }
+void mgos_config_set_update_key6(struct mgos_config *cfg, const char * v);
+static inline void mgos_sys_config_set_update_key6(const char * v) { mgos_config_set_update_key6(&mgos_sys_config, v); }
+
+/* update.key7 */
+#define MGOS_CONFIG_HAVE_UPDATE_KEY7
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_KEY7
+const char * mgos_config_get_update_key7(const struct mgos_config *cfg);
+const char * mgos_config_get_default_update_key7(void);
+static inline const char * mgos_sys_config_get_update_key7(void) { return mgos_config_get_update_key7(&mgos_sys_config); }
+static inline const char * mgos_sys_config_get_default_update_key7(void) { return mgos_config_get_default_update_key7(); }
+void mgos_config_set_update_key7(struct mgos_config *cfg, const char * v);
+static inline void mgos_sys_config_set_update_key7(const char * v) { mgos_config_set_update_key7(&mgos_sys_config, v); }
+
+/* update.sig_req_mask */
+#define MGOS_CONFIG_HAVE_UPDATE_SIG_REQ_MASK
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_SIG_REQ_MASK
+int mgos_config_get_update_sig_req_mask(const struct mgos_config *cfg);
+int mgos_config_get_default_update_sig_req_mask(void);
+static inline int mgos_sys_config_get_update_sig_req_mask(void) { return mgos_config_get_update_sig_req_mask(&mgos_sys_config); }
+static inline int mgos_sys_config_get_default_update_sig_req_mask(void) { return mgos_config_get_default_update_sig_req_mask(); }
+void mgos_config_set_update_sig_req_mask(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_update_sig_req_mask(int v) { mgos_config_set_update_sig_req_mask(&mgos_sys_config, v); }
 
 /* update.url */
 #define MGOS_CONFIG_HAVE_UPDATE_URL
