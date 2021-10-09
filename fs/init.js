@@ -104,11 +104,11 @@ GATTS.registerService(
       if (arg.char_uuid === "67a4eeb9-98f1-4186-8717-df670471d68b") {
         let str1 = "";
         if (arch_welding.arch_state > 0) {
-          str1 = arch_welding["s" + JSON.stringify(arch_welding.arch_state)].slice(arg.offset + arch_welding.offset, arg.offset + arch_welding.offset + c.mtu - 1)
+          str1 = arch_welding["s" + JSON.stringify(arch_welding.arch_state)].slice(arg.offset + arch_welding.offset, arg.offset + arch_welding.offset + 129)
         }
         GATTS.sendRespData(c, arg, str1);
         print("Chunk=" + str1);
-        print("Offset", arg.offset + arch_welding.offset);
+        print("Offset", arg.offset+arch_welding.offset);
 
         //READ CURRENT STATE FROM DEVICE (welding_param)
         //"123456789";106;25;106;0;31.8;0.0;12;900;1800;40;9600;0;12;900;1800;40;9600;0;123456789;0
@@ -158,7 +158,7 @@ GATTS.registerService(
           welding_param.id = write_params.id;
           welding_param.sp_pressure = write_params.sp_p;
           welding_param.state_time = write_params.st_t;
-          welding_param.begin_ts = write_params.ts;
+          welding_param.begin_ts = JSON.parse(write_params.ts);
           welding_param.state_num = write_params.st_n;
           
         }
@@ -182,12 +182,12 @@ GATTS.registerService(
               welding_param.state_time[0] = welding.cur_time;
             }
           }
-          if (write_params.state === 10) {
+          /*if (write_params.state === 10) {
             welding_param.end_ts = welding_param.begin_ts;
             for (let i = 0; i < welding_param.state_num; i++) {
               welding_param.end_ts = welding_param.end_ts + welding_param.actual_time[i];
             }
-          }
+          }*/
           if (write_params.state <= welding_param.state_num) {
             welding.state = write_params.state;
           } else {
@@ -195,12 +195,12 @@ GATTS.registerService(
             welding_param.end_ts = welding_param.begin_ts;
             for (let i = 0; i < welding_param.state_num; i++) {
               welding_param.end_ts = welding_param.end_ts + welding_param.actual_time[i];
-
             }
           }
           
           welding.cur_time = 0;
           Led.set_state_led(welding.state);
+          
         }
         print("write_params", JSON.stringify(write_params));
         //WRITE UPDATE PARAMS TO DEVICE
@@ -267,7 +267,7 @@ Timer.set(1000, Timer.REPEAT, function () {
     led_Ind[0] = 0;
   }
   //Автоматический переход с Этапа ОСАДКА на Этап СВАРКИ при достижении 0.9 от давления сварки
-  if (welding.state === 4 && welding.pressure >= welding_param.sp_pressure[3] * 0.9) {
+  if (welding.state === 4 && welding.pressure >= welding_param.sp_pressure[4] * 0.9) {
     welding_param.actual_time[welding.state - 1] = welding.cur_time;
     welding.state = 5;
     welding.cur_time = 0;
@@ -402,6 +402,7 @@ Timer.set(1000, Timer.REPEAT, function () {
     notifyStr = notifyStr + JSON.stringify(welding.alert[2]) + ";" + JSON.stringify(welding.alert[3]) + ";"
     notifyStr = notifyStr + Number2String(welding.pressure) + ";" + Number2String(welding.bat_voltage) + ";" + Number2String(welding.temperature) + ";" + JSON.stringify(Sys.free_ram());
     GATTS.notify(se.c, se.mode, se.handle, notifyStr);
+
   }
 }, null);
 
