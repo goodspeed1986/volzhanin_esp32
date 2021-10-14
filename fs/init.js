@@ -101,10 +101,10 @@ GATTS.registerService(
     } else if (ev === GATTS.EV_READ) {
       //READ ARCHIVE STATE FROM DEVICE (arch_welding)
       //23.5;23.5;12.5;34.5;12.8;...34.6
-      if (arg.char_uuid === "67a4eeb9-98f1-4186-8717-df670471d68b") {
+      if (arg.uuid === "67a4eeb9-98f1-4186-8717-df670471d68b") {
         let str1 = "";
         if (arch_welding.arch_state > 0) {
-          str1 = arch_welding["s" + JSON.stringify(arch_welding.arch_state)].slice(arg.offset + arch_welding.offset, arg.offset + arch_welding.offset + 129)
+          str1 = arch_welding["s" + JSON.stringify(arch_welding.arch_state)].slice(arg.offset + arch_welding.offset, arg.offset + arch_welding.offset + c.mtu-1)
         }
         GATTS.sendRespData(c, arg, str1);
         print("Chunk=" + str1);
@@ -112,7 +112,7 @@ GATTS.registerService(
 
         //READ CURRENT STATE FROM DEVICE (welding_param)
         //"123456789";106;25;106;0;31.8;0.0;12;900;1800;40;9600;0;12;900;1800;40;9600;0;123456789;0
-      } else if (arg.char_uuid === "4e75c6fe-d008-49f2-b182-fe231eed747c") {
+      } else if (arg.uuid === "4e75c6fe-d008-49f2-b182-fe231eed747c") {
         
         let str2;
         str2 = JSON.stringify(welding.state) + ";"
@@ -133,7 +133,7 @@ GATTS.registerService(
         GATTS.sendRespData(c, arg, str2);
         //READ CURRENT PARAMETERS OF DEVICE (updateMode, fw_version,  emulator, Sensor params)
         //1;1.2;0;4;20;0;60
-      } else if (arg.char_uuid === "c2232013-e3e9-4e3c-8a62-7e708dc0cbbc") {
+      } else if (arg.uuid === "c2232013-e3e9-4e3c-8a62-7e708dc0cbbc") {
         let str3 = "";
         str3 = JSON.stringify(updateMode) + ";";
         str3 = str3 + fw_version + ";";
@@ -145,13 +145,13 @@ GATTS.registerService(
     } else if (ev === GATTS.EV_WRITE) {
       //WRITE ARCHIVE PARAMS TO DEVICE
       //{"offset":0,"arch_state":1}
-      if (arg.char_uuid === "67a4eeb9-98f1-4186-8717-df670471d68b") {
+      if (arg.uuid === "67a4eeb9-98f1-4186-8717-df670471d68b") {
         let archive_params = JSON.parse(arg.data);
         arch_welding.offset = archive_params.offset;
         arch_welding.arch_state = archive_params.arch_state;
         print("archive_params", JSON.stringify(archive_params));
         //WRITE CURRENT PARAMS TO DEVICE
-      } else if (arg.char_uuid === "4e75c6fe-d008-49f2-b182-fe231eed747c") {
+      } else if (arg.uuid === "4e75c6fe-d008-49f2-b182-fe231eed747c") {
         let write_params = JSON.parse(arg.data);
         //cmd:0 - welding_param, {cmd:0, st_n:5, sp_p:[106,25,106,47,31.8,12], st_t:[900,1800,40,9600,49,50], ts:123456789, id:"12345678"}
         if (write_params.cmd === 0) {
@@ -204,7 +204,7 @@ GATTS.registerService(
         }
         print("write_params", JSON.stringify(write_params));
         //WRITE UPDATE PARAMS TO DEVICE
-      } else if (arg.char_uuid === "c2232013-e3e9-4e3c-8a62-7e708dc0cbbc") {
+      } else if (arg.uuid === "c2232013-e3e9-4e3c-8a62-7e708dc0cbbc") {
         let settings_params = JSON.parse(arg.data);
         //activate update state {cmd:2, update:1}
         if (settings_params.cmd === 2) {

@@ -12,9 +12,9 @@ libs:
   repo_version: 2957de8c451e7fb9df18349d682269318abb573f
 - name: bt-common
   location: https://github.com/mongoose-os-libs/bt-common
-  version: latest
+  version: 2.19.1
   user_version: "1.0"
-  repo_version: 13b21bac18780f8f64a2b23a8d0db6ed99301a47
+  repo_version: 4f2fc3d1037fbc18e06ec5a8f99fc553491deaee
 - name: core
   location: https://github.com/mongoose-os-libs/core
   version: latest
@@ -39,7 +39,7 @@ libs:
   location: https://github.com/mongoose-os-libs/lwip
   version: latest
   user_version: 2.1.2
-  repo_version: 2cff4ac32b5c9c4d4481123d99b29c59a84afc6c
+  repo_version: 417e07ea1b5d37f59428caee93b6730798090460
 - name: mbedtls
   location: https://github.com/mongoose-os-libs/mbedtls
   version: latest
@@ -58,7 +58,7 @@ libs:
   blobs:
   - name: libmongoose-esp32-latest.a
     size: 1159146
-    cs_sha256: fb081e6f09a4aa207403d7a7cab12c0dabe585cd5a39e0b0adc8ee4e27d63cfd
+    cs_sha256: 27a596d5a5e3f97f04512c30f889e40a517c65383bedd6bb46a29dec4b734ac5
 - name: onewire
   location: https://github.com/mongoose-os-libs/onewire
   version: latest
@@ -72,7 +72,7 @@ libs:
   blobs:
   - name: libota-common-esp32-latest.a
     size: 349818
-    cs_sha256: 3d0bf0e76e80901c4679e2c8da1d927b694858a84c0d0e70455cde8d472b622b
+    cs_sha256: 644c85753f2a005192cc819f21a7d11fd8ff27becb732046eab8b6e4a34f605f
 - name: ota-http-client
   location: https://github.com/mongoose-os-libs/ota-http-client
   version: latest
@@ -81,7 +81,7 @@ libs:
   blobs:
   - name: libota-http-client-esp32-latest.a
     size: 76064
-    cs_sha256: a6d9da0b9c6e06430bca613cee53c3eecd09d4322a9968d9e220a4769e248153
+    cs_sha256: 84bcd3bbb7e233cb6b82eadcc308599ecaf4db0e193aa22c11a6f06a65a41150
 - name: ota-http-server
   location: https://github.com/mongoose-os-libs/ota-http-server
   version: latest
@@ -90,7 +90,7 @@ libs:
   blobs:
   - name: libota-http-server-esp32-latest.a
     size: 70484
-    cs_sha256: 699c25c8b0f218b258f6958c5a68fd4ea4282348d2229ec56a31940f03a387fc
+    cs_sha256: e18c9de988faf3b07cf417631856665936e8dcc6a0cc3bbc1f62907030a0a037
 - name: pwm
   location: https://github.com/mongoose-os-libs/pwm
   version: latest
@@ -100,7 +100,7 @@ libs:
   location: https://github.com/mongoose-os-libs/rpc-common
   version: latest
   user_version: "1.0"
-  repo_version: 17383b6f5e51d8113e6b7dc0a7c7958b8a567bf1
+  repo_version: c7654dfa303b33ea8c76cfeda35085355557e878
 - name: rpc-loopback
   location: https://github.com/mongoose-os-libs/rpc-loopback
   version: latest
