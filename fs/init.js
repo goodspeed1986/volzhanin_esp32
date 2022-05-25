@@ -194,7 +194,7 @@ GATTS.registerService(
             welding.state = 10;
             welding_param.end_ts = welding_param.begin_ts;
             for (let i = 0; i < welding_param.state_num; i++) {
-              welding_param.end_ts = welding_param.end_ts + welding_param.actual_time[i];
+              welding_param.end_ts = welding_param.end_ts + welding_param.actual_time[i]*1000;
             }
           }
           
@@ -427,7 +427,7 @@ GPIO.set_button_handler(NextButton, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 100, functi
         } else {
           welding_param.end_ts = welding_param.begin_ts;
           for (let i = 0; i < welding_param.state_num; i++) {
-            welding_param.end_ts = welding_param.end_ts + welding_param.actual_time[i];
+            welding_param.end_ts = welding_param.end_ts + welding_param.actual_time[i]*1000;
           }
           welding.state = 10
           welding.cur_time = 0;

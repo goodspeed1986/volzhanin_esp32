@@ -106,7 +106,6 @@ int  mgos_gpio_blink(int, int, int);
 int  mgos_gpio_disable_int(int);
 int  mgos_gpio_enable_int(int);
 int  mgos_gpio_read(int);
-int  mgos_gpio_read_out(int);
 int  mgos_gpio_set_button_handler(int,int,int,int,void(*)(int, void *), void *);
 int  mgos_gpio_set_int_handler(int,int,void(*)(int,void *),void *);
 int  mgos_gpio_set_mode(int,int);
@@ -271,7 +270,6 @@ const struct mgos_ffi_export ffi_exports[] = {
   {"mgos_gpio_disable_int", mgos_gpio_disable_int},
   {"mgos_gpio_enable_int", mgos_gpio_enable_int},
   {"mgos_gpio_read", mgos_gpio_read},
-  {"mgos_gpio_read_out", mgos_gpio_read_out},
   {"mgos_gpio_set_button_handler", mgos_gpio_set_button_handler},
   {"mgos_gpio_set_int_handler", mgos_gpio_set_int_handler},
   {"mgos_gpio_set_mode", mgos_gpio_set_mode},
@@ -338,4 +336,4 @@ const struct mgos_ffi_export ffi_exports[] = {
   {"strdup", strdup},
   {"temprature_sens_read", temprature_sens_read},
 };
-const int ffi_exports_cnt = 163;
+const int ffi_exports_cnt = 162;
