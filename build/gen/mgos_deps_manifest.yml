@@ -1,4 +1,4 @@
-app_name: Volzhanin
+app_name: volzhanin_esp32
 libs:
 - name: arduino-compat
   location: https://github.com/mongoose-os-libs/arduino-compat

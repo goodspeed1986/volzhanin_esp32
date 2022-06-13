@@ -76,7 +76,7 @@ let Sensors = {
   }
 };
 
-let MCP23x17_I2C_address = 0x27;
+let MCP23x17_I2C_address = 0x20;
 let IODIRA = 0x00; 
 let IODIRB = 0x01;
 let MGPIOA = 0x12; // Синие LED
