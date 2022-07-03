@@ -41,7 +41,8 @@ let welding_param = {
   state_time: [0, 0, 0, 0, 0, 0], //Время каждого этапа по стандарту
   actual_time: [0, 0, 0, 0, 0, 0], //Время каждого этапа по факту
   begin_ts: 0, //TS начала сварки
-  end_ts: 0 //TS конца сварки
+  end_ts: 0, //TS конца сварки
+  gps: "-"
 };
 
 let arch_welding = {
@@ -111,7 +112,7 @@ GATTS.registerService(
         print("Offset", arg.offset+arch_welding.offset);
 
         //READ CURRENT STATE FROM DEVICE (welding_param)
-        //"123456789";106;25;106;0;31.8;0.0;12;900;1800;40;9600;0;12;900;1800;40;9600;0;123456789;0
+        //10;1656866475533;36;5.4;0;32.4;36;0;3;541;20;23;4378;0;3;3;2;2;3;0;1656866475533;1656866488533;"55.7700796 49.2454783 03-07-2022 19:40:51"
       } else if (arg.uuid === "4e75c6fe-d008-49f2-b182-fe231eed747c") {
         
         let str2;
@@ -128,7 +129,8 @@ GATTS.registerService(
           str2 = str2 + JSON.stringify(welding_param.actual_time[i]) + ";";
         }
         str2 = str2 + JSON.stringify(welding_param.begin_ts) + ";";
-        str2 = str2 + JSON.stringify(welding_param.end_ts);
+        str2 = str2 + JSON.stringify(welding_param.end_ts) + ";";
+        str2 = str2 + welding_param.gps;
         print("current_params", str2);
         GATTS.sendRespData(c, arg, str2);
         //READ CURRENT PARAMETERS OF DEVICE (updateMode, fw_version,  emulator, Sensor params)
@@ -152,21 +154,23 @@ GATTS.registerService(
         print("archive_params", JSON.stringify(archive_params));
         //WRITE CURRENT PARAMS TO DEVICE
       } else if (arg.uuid === "4e75c6fe-d008-49f2-b182-fe231eed747c") {
+        print("welding_params" + arg.data);
         let write_params = JSON.parse(arg.data);
-        //cmd:0 - welding_param, {cmd:0, st_n:5, sp_p:[106,25,106,47,31.8,12], st_t:[900,1800,40,9600,49,50], ts:123456789, id:"12345678"}
+        //cmd:0 - welding_param, {cmd:0, st_n:5, sp_p:[106,25,106,47,31.8,12], st_t:[900,1800,40,9600,49,50], ts:"123456789", id:"12345678", gps:"55.7700796 49.2454783 03-07-2022 19:40:51"}
         if (write_params.cmd === 0) {
           welding_param.id = write_params.id;
           welding_param.sp_pressure = write_params.sp_p;
           welding_param.state_time = write_params.st_t;
           welding_param.begin_ts = JSON.parse(write_params.ts);
           welding_param.state_num = write_params.st_n;
-          
+          welding_param.gps = write_params.gps;
         }
         //cmd:1 - change state {cmd:1, state:1}
         if (write_params.cmd === 1 && welding.alert[3] === 0) {
           if (write_params.state === 0) {
             //Удаление архивов сварки 
             welding_param.id = "-";
+            welding_param.gps = "-";
             for (let i = 1; i < 7; i++) {
               arch_welding["s" + JSON.stringify(i)] = "";
             }
