@@ -1,224 +1,224 @@
 name: volzhanin_esp32
 type: app
-version: "1.12"
+version: "1.13"
 platform: esp32
 platforms:
 - esp32
 author: mongoose-os
 description: A Mongoose OS app skeleton
 sources:
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/src/main.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/freertos/src/mgos_freertos.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/freertos/src/mgos_freertos_core_dump.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mbedtls/src/mgos_mbedtls.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mbedtls/src/esp32/esp32_aes.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mbedtls/src/esp32/esp32_bignum.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/aes.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/aes_atca.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/aesni.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/arc4.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/aria.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/asn1parse.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/asn1write.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/base64.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/bignum.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/blowfish.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/camellia.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ccm.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/certs.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/chacha20.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/chachapoly.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/cipher.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/cipher_wrap.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/cmac.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ctr_drbg.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/debug.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/des.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/dhm.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ecdh.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ecdsa.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ecjpake.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ecp.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ecp_atca.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ecp_curves.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/entropy.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/entropy_poll.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/error.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/gcm.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/havege.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/hkdf.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/hmac_drbg.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/md.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/md2.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/md4.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/md5.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/md_wrap.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/memory_buffer_alloc.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/net_sockets.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/nist_kw.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/oid.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/padlock.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/pem.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/pk.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/pk_wrap.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/pkcs11.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/pkcs12.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/pkcs5.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/pkparse.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/pkwrite.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/platform.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/platform_util.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/poly1305.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ripemd160.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/rsa.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/rsa_internal.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/sha1.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/sha256.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/sha512.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ssl_cache.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ssl_ciphersuites.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ssl_cli.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ssl_cookie.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ssl_srv.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ssl_ticket.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ssl_tls.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/threading.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/timing.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/version.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/version_features.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/x509.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/x509_create.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/x509_crl.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/x509_crt.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/x509_csr.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/x509write_crt.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/x509write_csr.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/xtea.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-common/src/mgos_vfs.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-common/src/mgos_vfs_dev.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-common/src/mgos_vfs_internal.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-common/src/esp32/esp32_fs.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-common/src/esp32/esp32_fs_crypt.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-common/src/esp32/esp32_vfs_dev_partition.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-lfs/src/mgos_vfs_lfs.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-lfs/littlefs/lfs.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-lfs/littlefs/lfs_util.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-lfs/littlefs1/lfs1.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-lfs/littlefs1/lfs1_util.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-spiffs/src/mgos_vfs_fs_spiffs.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-spiffs/src/spiffs/spiffs_cache.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-spiffs/src/spiffs/spiffs_check.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-spiffs/src/spiffs/spiffs_gc.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-spiffs/src/spiffs/spiffs_hydrogen.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-spiffs/src/spiffs/spiffs_nucleus.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/core/src/mgos_core.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/arduino-compat/src/Print.cpp
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/arduino-compat/src/WString.cpp
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/arduino-compat/src/mgos_arduino.cpp
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/onewire/src/mgos_onewire.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/arduino-onewire/src/mgos_arduino_onewire_c.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/arduino-onewire/src/OneWire.cpp
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/arduino-onewire/src/mgos_arduino_onewire.cpp
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/bt-common/src/mgos_bt.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/bt-common/src/mgos_bt_gap.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/bt-common/src/mgos_bt_js.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/bt-common/src/esp32/esp32_bt.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/bt-common/src/esp32/esp32_bt_gap.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/bt-common/src/esp32/esp32_bt_gattc.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/bt-common/src/esp32/esp32_bt_gatts.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/i2c/src/mgos_i2c_master.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/i2c/src/esp32/esp32_i2c_master.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mjs/src/mos_mjs.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mjs/mjs.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mjs/esp32/src/esp32_mjs.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/http-server/src/mgos_http_server.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/pwm/src/mgos_pwm.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/pwm/src/mgos_pwm_rgb_led.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/pwm/src/esp32/esp32_pwm.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-common/src/mg_rpc.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-common/src/mg_rpc_channel.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-common/src/mg_rpc_channel_http.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-common/src/mgos_rpc.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-loopback/src/mg_rpc_channel_loopback.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-service-config/src/mgos_service_config.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-service-fs/src/mgos_service_fs.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-uart/src/mgos_rpc_channel_uart.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/wifi/src/mgos_wifi.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/wifi/src/mjs_wifi.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/wifi/src/esp32/esp32_wifi.c
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/build/gen/mgos_deps_init.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/src/main.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/freertos/src/mgos_freertos.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/freertos/src/mgos_freertos_core_dump.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mbedtls/src/mgos_mbedtls.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mbedtls/src/esp32/esp32_aes.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mbedtls/src/esp32/esp32_bignum.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/aes.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/aes_atca.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/aesni.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/arc4.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/aria.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/asn1parse.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/asn1write.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/base64.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/bignum.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/blowfish.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/camellia.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ccm.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/certs.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/chacha20.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/chachapoly.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/cipher.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/cipher_wrap.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/cmac.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ctr_drbg.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/debug.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/des.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/dhm.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ecdh.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ecdsa.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ecjpake.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ecp.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ecp_atca.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ecp_curves.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/entropy.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/entropy_poll.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/error.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/gcm.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/havege.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/hkdf.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/hmac_drbg.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/md.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/md2.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/md4.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/md5.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/md_wrap.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/memory_buffer_alloc.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/net_sockets.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/nist_kw.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/oid.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/padlock.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/pem.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/pk.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/pk_wrap.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/pkcs11.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/pkcs12.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/pkcs5.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/pkparse.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/pkwrite.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/platform.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/platform_util.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/poly1305.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ripemd160.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/rsa.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/rsa_internal.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/sha1.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/sha256.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/sha512.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ssl_cache.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ssl_ciphersuites.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ssl_cli.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ssl_cookie.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ssl_srv.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ssl_ticket.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ssl_tls.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/threading.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/timing.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/version.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/version_features.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/x509.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/x509_create.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/x509_crl.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/x509_crt.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/x509_csr.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/x509write_crt.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/x509write_csr.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/xtea.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-common/src/mgos_vfs.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-common/src/mgos_vfs_dev.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-common/src/mgos_vfs_internal.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-common/src/esp32/esp32_fs.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-common/src/esp32/esp32_fs_crypt.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-common/src/esp32/esp32_vfs_dev_partition.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-lfs/src/mgos_vfs_lfs.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-lfs/littlefs/lfs.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-lfs/littlefs/lfs_util.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-lfs/littlefs1/lfs1.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-lfs/littlefs1/lfs1_util.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-spiffs/src/mgos_vfs_fs_spiffs.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-spiffs/src/spiffs/spiffs_cache.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-spiffs/src/spiffs/spiffs_check.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-spiffs/src/spiffs/spiffs_gc.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-spiffs/src/spiffs/spiffs_hydrogen.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-spiffs/src/spiffs/spiffs_nucleus.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/core/src/mgos_core.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/arduino-compat/src/Print.cpp
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/arduino-compat/src/WString.cpp
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/arduino-compat/src/mgos_arduino.cpp
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/onewire/src/mgos_onewire.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/arduino-onewire/src/mgos_arduino_onewire_c.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/arduino-onewire/src/OneWire.cpp
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/arduino-onewire/src/mgos_arduino_onewire.cpp
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/bt-common/src/mgos_bt.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/bt-common/src/mgos_bt_gap.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/bt-common/src/mgos_bt_js.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/bt-common/src/esp32/esp32_bt.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/bt-common/src/esp32/esp32_bt_gap.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/bt-common/src/esp32/esp32_bt_gattc.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/bt-common/src/esp32/esp32_bt_gatts.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/i2c/src/mgos_i2c_master.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/i2c/src/esp32/esp32_i2c_master.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mjs/src/mos_mjs.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mjs/mjs.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mjs/esp32/src/esp32_mjs.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/http-server/src/mgos_http_server.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/pwm/src/mgos_pwm.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/pwm/src/mgos_pwm_rgb_led.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/pwm/src/esp32/esp32_pwm.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-common/src/mg_rpc.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-common/src/mg_rpc_channel.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-common/src/mg_rpc_channel_http.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-common/src/mgos_rpc.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-loopback/src/mg_rpc_channel_loopback.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-service-config/src/mgos_service_config.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-service-fs/src/mgos_service_fs.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-uart/src/mgos_rpc_channel_uart.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/wifi/src/mgos_wifi.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/wifi/src/mjs_wifi.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/wifi/src/esp32/esp32_wifi.c
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/build/gen/mgos_deps_init.c
 includes:
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/freertos/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/freertos/include/esp32
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mbedtls/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mbedtls/include/esp32
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-common/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-common/include/esp32
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mongoose/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-lfs/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-lfs/littlefs
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-lfs/littlefs1
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-spiffs/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-spiffs/include/spiffs
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-spiffs/include/esp32
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/core/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/core/include/esp32
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/arduino-compat/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/arduino-compat/include/sys
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/onewire/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/arduino-onewire/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/bt-common/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/bt-common/include/esp32
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/i2c/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mjs/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/http-server/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/ota-common/src
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/ota-common/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/ota-common/include/esp32
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/ota-http-client/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/pwm/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-common/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-loopback/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-service-config/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-uart/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/wifi/include
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/wifi/include/esp32
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/freertos/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/freertos/include/esp32
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mbedtls/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mbedtls/include/esp32
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-common/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-common/include/esp32
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mongoose/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-lfs/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-lfs/littlefs
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-lfs/littlefs1
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-spiffs/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-spiffs/include/spiffs
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-spiffs/include/esp32
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/core/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/core/include/esp32
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/arduino-compat/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/arduino-compat/include/sys
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/onewire/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/arduino-onewire/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/bt-common/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/bt-common/include/esp32
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/i2c/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mjs/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/http-server/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/ota-common/src
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/ota-common/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/ota-common/include/esp32
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/ota-http-client/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/pwm/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-common/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-loopback/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-service-config/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-uart/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/wifi/include
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/wifi/include/esp32
 filesystem:
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mjs/fs/api_bitbang.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mjs/fs/api_config.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mjs/fs/api_events.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mjs/fs/api_gpio.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mjs/fs/api_http.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mjs/fs/api_log.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mjs/fs/api_net.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mjs/fs/api_sys.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mjs/fs/api_timer.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mjs/fs/api_uart.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mjs/fs/polyfill.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mjs/mjs/lib/api_dataview.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mjs/mjs/lib/api_file.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mjs/mjs/lib/api_math.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/arduino-onewire/mjs_fs/api_arduino_onewire.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/bt-common/mjs_fs/api_bt_gap.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/bt-common/mjs_fs/api_bt_gatt.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/bt-common/mjs_fs/api_bt_gattc.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/bt-common/mjs_fs/api_bt_gatts.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/i2c/mjs_fs/api_i2c.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/ota-http-client/mjs_fs/api_ota.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/pwm/mjs_fs/api_pwm.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-common/mjs_fs/api_rpc.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/wifi/mjs_fs/api_wifi.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mjs/esp32/fs/api_arch_uart.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mjs/esp32/fs/api_esp32.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/fs/ds18b20.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/fs/init.js
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/fs/sensors.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mjs/fs/api_bitbang.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mjs/fs/api_config.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mjs/fs/api_events.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mjs/fs/api_gpio.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mjs/fs/api_http.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mjs/fs/api_log.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mjs/fs/api_net.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mjs/fs/api_sys.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mjs/fs/api_timer.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mjs/fs/api_uart.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mjs/fs/polyfill.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mjs/mjs/lib/api_dataview.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mjs/mjs/lib/api_file.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mjs/mjs/lib/api_math.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/arduino-onewire/mjs_fs/api_arduino_onewire.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/bt-common/mjs_fs/api_bt_gap.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/bt-common/mjs_fs/api_bt_gatt.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/bt-common/mjs_fs/api_bt_gattc.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/bt-common/mjs_fs/api_bt_gatts.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/i2c/mjs_fs/api_i2c.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/ota-http-client/mjs_fs/api_ota.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/pwm/mjs_fs/api_pwm.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-common/mjs_fs/api_rpc.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/wifi/mjs_fs/api_wifi.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mjs/esp32/fs/api_arch_uart.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mjs/esp32/fs/api_esp32.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/fs/ds18b20.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/fs/init.js
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/fs/sensors.js
 binary_libs:
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/build/objs/libmongoose-esp32-2.19.1.a
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/build/objs/libota-common-esp32-2.19.1.a
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/build/objs/libota-http-client-esp32-2.19.1.a
-- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/build/objs/libota-http-server-esp32-2.19.1.a
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/build/objs/libmongoose-esp32-2.19.1.a
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/build/objs/libota-common-esp32-2.19.1.a
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/build/objs/libota-http-client-esp32-2.19.1.a
+- /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/build/objs/libota-http-server-esp32-2.19.1.a
 modules:
 - name: mbedtls_module
   location: https://github.com/mongoose-os/mbedtls
@@ -890,163 +890,163 @@ libs_handled:
 - lib:
     name: freertos
     location: https://github.com/mongoose-os-libs/freertos
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/freertos
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/freertos
   sources:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/freertos/src/mgos_freertos.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/freertos/src/mgos_freertos_core_dump.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/freertos/src/mgos_freertos.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/freertos/src/mgos_freertos_core_dump.c
   version: 2.19.1
   user_version: 10.2.0
   repo_version: f4b5ba5336f2f0fe3b183527790cf82e0644364e
 - lib:
     name: mbedtls
     location: https://github.com/mongoose-os-libs/mbedtls
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mbedtls
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mbedtls
   sources:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mbedtls/src/mgos_mbedtls.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mbedtls/src/esp32/esp32_aes.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mbedtls/src/esp32/esp32_bignum.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/aes.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/aes_atca.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/aesni.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/arc4.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/aria.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/asn1parse.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/asn1write.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/base64.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/bignum.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/blowfish.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/camellia.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ccm.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/certs.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/chacha20.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/chachapoly.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/cipher.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/cipher_wrap.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/cmac.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ctr_drbg.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/debug.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/des.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/dhm.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ecdh.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ecdsa.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ecjpake.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ecp.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ecp_atca.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ecp_curves.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/entropy.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/entropy_poll.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/error.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/gcm.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/havege.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/hkdf.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/hmac_drbg.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/md.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/md2.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/md4.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/md5.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/md_wrap.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/memory_buffer_alloc.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/net_sockets.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/nist_kw.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/oid.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/padlock.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/pem.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/pk.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/pk_wrap.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/pkcs11.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/pkcs12.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/pkcs5.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/pkparse.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/pkwrite.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/platform.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/platform_util.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/poly1305.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ripemd160.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/rsa.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/rsa_internal.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/sha1.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/sha256.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/sha512.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ssl_cache.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ssl_ciphersuites.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ssl_cli.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ssl_cookie.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ssl_srv.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ssl_ticket.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/ssl_tls.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/threading.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/timing.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/version.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/version_features.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/x509.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/x509_create.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/x509_crl.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/x509_crt.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/x509_csr.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/x509write_crt.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/x509write_csr.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mbedtls/library/xtea.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mbedtls/src/mgos_mbedtls.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mbedtls/src/esp32/esp32_aes.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mbedtls/src/esp32/esp32_bignum.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/aes.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/aes_atca.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/aesni.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/arc4.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/aria.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/asn1parse.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/asn1write.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/base64.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/bignum.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/blowfish.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/camellia.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ccm.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/certs.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/chacha20.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/chachapoly.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/cipher.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/cipher_wrap.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/cmac.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ctr_drbg.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/debug.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/des.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/dhm.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ecdh.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ecdsa.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ecjpake.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ecp.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ecp_atca.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ecp_curves.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/entropy.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/entropy_poll.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/error.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/gcm.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/havege.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/hkdf.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/hmac_drbg.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/md.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/md2.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/md4.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/md5.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/md_wrap.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/memory_buffer_alloc.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/net_sockets.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/nist_kw.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/oid.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/padlock.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/pem.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/pk.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/pk_wrap.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/pkcs11.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/pkcs12.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/pkcs5.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/pkparse.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/pkwrite.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/platform.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/platform_util.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/poly1305.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ripemd160.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/rsa.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/rsa_internal.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/sha1.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/sha256.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/sha512.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ssl_cache.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ssl_ciphersuites.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ssl_cli.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ssl_cookie.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ssl_srv.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ssl_ticket.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/ssl_tls.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/threading.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/timing.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/version.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/version_features.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/x509.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/x509_create.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/x509_crl.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/x509_crt.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/x509_csr.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/x509write_crt.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/x509write_csr.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mbedtls/library/xtea.c
   version: 2.19.1
   user_version: 2.16.6-cesanta1
   repo_version: 8216c1a8babe86b04f2930fa00217e440ed9624b
 - lib:
     name: vfs-common
     location: https://github.com/mongoose-os-libs/vfs-common
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-common
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-common
   sources:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-common/src/mgos_vfs.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-common/src/mgos_vfs_dev.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-common/src/mgos_vfs_internal.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-common/src/esp32/esp32_fs.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-common/src/esp32/esp32_fs_crypt.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-common/src/esp32/esp32_vfs_dev_partition.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-common/src/mgos_vfs.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-common/src/mgos_vfs_dev.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-common/src/mgos_vfs_internal.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-common/src/esp32/esp32_fs.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-common/src/esp32/esp32_fs_crypt.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-common/src/esp32/esp32_vfs_dev_partition.c
   version: 2.19.1
   user_version: "1.0"
   repo_version: df19c4e68e7f0dddde27e9024f3168e30ab03c3d
 - lib:
     name: mongoose
     location: https://github.com/mongoose-os-libs/mongoose
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mongoose
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mongoose
   binary_libs:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/build/objs/libmongoose-esp32-2.19.1.a
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/build/objs/libmongoose-esp32-2.19.1.a
   version: 2.19.1
   user_version: "6.18"
   repo_version: be8cbe06ddacb4539d43c1290b1326c399c1ed7d
 - lib:
     name: vfs-fs-lfs
     location: https://github.com/mongoose-os-libs/vfs-fs-lfs
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-lfs
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-lfs
   init_deps:
   - vfs-common
   sources:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-lfs/src/mgos_vfs_lfs.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-lfs/littlefs/lfs.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-lfs/littlefs/lfs_util.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-lfs/littlefs1/lfs1.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-lfs/littlefs1/lfs1_util.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-lfs/src/mgos_vfs_lfs.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-lfs/littlefs/lfs.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-lfs/littlefs/lfs_util.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-lfs/littlefs1/lfs1.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-lfs/littlefs1/lfs1_util.c
   version: 2.19.1
   user_version: 2.2.0
   repo_version: 13857635705bd936a60ec98c2b1965656daa0bf8
 - lib:
     name: vfs-fs-spiffs
     location: https://github.com/mongoose-os-libs/vfs-fs-spiffs
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-spiffs
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-spiffs
   init_deps:
   - vfs-common
   sources:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-spiffs/src/mgos_vfs_fs_spiffs.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-spiffs/src/spiffs/spiffs_cache.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-spiffs/src/spiffs/spiffs_check.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-spiffs/src/spiffs/spiffs_gc.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-spiffs/src/spiffs/spiffs_hydrogen.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/vfs-fs-spiffs/src/spiffs/spiffs_nucleus.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-spiffs/src/mgos_vfs_fs_spiffs.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-spiffs/src/spiffs/spiffs_cache.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-spiffs/src/spiffs/spiffs_check.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-spiffs/src/spiffs/spiffs_gc.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-spiffs/src/spiffs/spiffs_hydrogen.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/vfs-fs-spiffs/src/spiffs/spiffs_nucleus.c
   version: 2.19.1
   user_version: "1.0"
   repo_version: 8317dc59356147918d15cb3258e2083cf20f4e3e
 - lib:
     name: core
     location: https://github.com/mongoose-os-libs/core
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/core
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/core
   init_deps:
   - freertos
   - mongoose
@@ -1055,233 +1055,233 @@ libs_handled:
   - vfs-fs-lfs
   - vfs-fs-spiffs
   sources:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/core/src/mgos_core.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/core/src/mgos_core.c
   version: 2.19.1
   user_version: "1.0"
   repo_version: 98abe4a666879cc237784361441855bc48152462
 - lib:
     name: arduino-compat
     location: https://github.com/mongoose-os-libs/arduino-compat
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/arduino-compat
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/arduino-compat
   init_deps:
   - core
   sources:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/arduino-compat/src/Print.cpp
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/arduino-compat/src/WString.cpp
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/arduino-compat/src/mgos_arduino.cpp
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/arduino-compat/src/Print.cpp
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/arduino-compat/src/WString.cpp
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/arduino-compat/src/mgos_arduino.cpp
   version: 2.19.1
   user_version: "1.0"
   repo_version: 3dde5d12e20d7ee94a5a5f6d16c771375c385334
 - lib:
     name: onewire
     location: https://github.com/mongoose-os-libs/onewire
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/onewire
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/onewire
   init_deps:
   - core
   sources:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/onewire/src/mgos_onewire.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/onewire/src/mgos_onewire.c
   version: 2.19.1
   user_version: "1.0"
   repo_version: e90a2304cd7203184ef50904c2841cdf2b7a5390
 - lib:
     name: arduino-onewire
     location: https://github.com/mongoose-os-libs/arduino-onewire
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/arduino-onewire
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/arduino-onewire
   init_deps:
   - arduino-compat
   - core
   - onewire
   sources:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/arduino-onewire/src/mgos_arduino_onewire_c.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/arduino-onewire/src/OneWire.cpp
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/arduino-onewire/src/mgos_arduino_onewire.cpp
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/arduino-onewire/src/mgos_arduino_onewire_c.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/arduino-onewire/src/OneWire.cpp
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/arduino-onewire/src/mgos_arduino_onewire.cpp
   version: 2.19.1
   user_version: "1.0"
   repo_version: 207e2a5f6222b74854d2b540d47f844d625effcf
 - lib:
     name: bt-common
     location: https://github.com/mongoose-os-libs/bt-common
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/bt-common
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/bt-common
   init_deps:
   - core
   sources:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/bt-common/src/mgos_bt.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/bt-common/src/mgos_bt_gap.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/bt-common/src/mgos_bt_js.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/bt-common/src/esp32/esp32_bt.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/bt-common/src/esp32/esp32_bt_gap.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/bt-common/src/esp32/esp32_bt_gattc.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/bt-common/src/esp32/esp32_bt_gatts.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/bt-common/src/mgos_bt.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/bt-common/src/mgos_bt_gap.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/bt-common/src/mgos_bt_js.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/bt-common/src/esp32/esp32_bt.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/bt-common/src/esp32/esp32_bt_gap.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/bt-common/src/esp32/esp32_bt_gattc.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/bt-common/src/esp32/esp32_bt_gatts.c
   version: 2.19.1
   user_version: "1.0"
   repo_version: 4f2fc3d1037fbc18e06ec5a8f99fc553491deaee
 - lib:
     name: i2c
     location: https://github.com/mongoose-os-libs/i2c
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/i2c
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/i2c
   init_deps:
   - core
   sources:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/i2c/src/mgos_i2c_master.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/i2c/src/esp32/esp32_i2c_master.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/i2c/src/mgos_i2c_master.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/i2c/src/esp32/esp32_i2c_master.c
   version: 2.19.1
   user_version: "1.0"
   repo_version: cd740fa1b33b4b01bacc5a86a51fbe5d27c33f9c
 - lib:
     name: mjs
     location: https://github.com/mongoose-os-libs/mjs
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mjs
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mjs
   init_deps:
   - core
   sources:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mjs/src/mos_mjs.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/modules/mjs/mjs.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/mjs/esp32/src/esp32_mjs.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mjs/src/mos_mjs.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/modules/mjs/mjs.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/mjs/esp32/src/esp32_mjs.c
   version: 2.19.1
   user_version: "1.0"
   repo_version: e1076d2d60ec19450716af3c2605e4388e12b873
 - lib:
     name: http-server
     location: https://github.com/mongoose-os-libs/http-server
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/http-server
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/http-server
   init_deps:
   - core
   - wifi
   sources:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/http-server/src/mgos_http_server.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/http-server/src/mgos_http_server.c
   version: 2.19.1
   user_version: "1.0"
   repo_version: eeab41a6aa416bc201d5619a4b1039d30294b2c9
 - lib:
     name: ota-common
     location: https://github.com/mongoose-os-libs/ota-common
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/ota-common
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/ota-common
   binary_libs:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/build/objs/libota-common-esp32-2.19.1.a
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/build/objs/libota-common-esp32-2.19.1.a
   version: 2.19.1
   user_version: 1.2.1
   repo_version: 11d8daecdc553c8d3bb94a610398ebb0846c6215
 - lib:
     name: ota-http-client
     location: https://github.com/mongoose-os-libs/ota-http-client
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/ota-http-client
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/ota-http-client
   init_deps:
   - core
   - ota-common
   binary_libs:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/build/objs/libota-http-client-esp32-2.19.1.a
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/build/objs/libota-http-client-esp32-2.19.1.a
   version: 2.19.1
   user_version: "1.0"
   repo_version: e2f9fcfcae9e6efb24e6de6b42af6dd483dd675b
 - lib:
     name: ota-http-server
     location: https://github.com/mongoose-os-libs/ota-http-server
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/ota-http-server
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/ota-http-server
   init_deps:
   - core
   - http-server
   - ota-common
   - ota-http-client
   binary_libs:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/build/objs/libota-http-server-esp32-2.19.1.a
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/build/objs/libota-http-server-esp32-2.19.1.a
   version: 2.19.1
   user_version: "1.0"
   repo_version: 6a4130f33dcde4940c079aef9c734d869df62f3b
 - lib:
     name: pwm
     location: https://github.com/mongoose-os-libs/pwm
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/pwm
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/pwm
   init_deps:
   - core
   sources:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/pwm/src/mgos_pwm.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/pwm/src/mgos_pwm_rgb_led.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/pwm/src/esp32/esp32_pwm.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/pwm/src/mgos_pwm.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/pwm/src/mgos_pwm_rgb_led.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/pwm/src/esp32/esp32_pwm.c
   version: 2.19.1
   user_version: "1.0"
   repo_version: a0889e7b9a1ba3050184f7fefacbdcc315c4be93
 - lib:
     name: rpc-common
     location: https://github.com/mongoose-os-libs/rpc-common
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-common
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-common
   init_deps:
   - core
   - http-server
   - mongoose
   sources:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-common/src/mg_rpc.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-common/src/mg_rpc_channel.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-common/src/mg_rpc_channel_http.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-common/src/mgos_rpc.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-common/src/mg_rpc.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-common/src/mg_rpc_channel.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-common/src/mg_rpc_channel_http.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-common/src/mgos_rpc.c
   version: 2.19.1
   user_version: "1.0"
   repo_version: f948357dde68e67bcf8347b9a9a49468c6ee5c4c
 - lib:
     name: rpc-loopback
     location: https://github.com/mongoose-os-libs/rpc-loopback
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-loopback
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-loopback
   init_deps:
   - core
   - rpc-common
   sources:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-loopback/src/mg_rpc_channel_loopback.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-loopback/src/mg_rpc_channel_loopback.c
   version: 2.19.1
   user_version: "1.0"
   repo_version: dec04b4ec1205e3fbf017a2cd3a5a3d8eceacd04
 - lib:
     name: rpc-service-config
     location: https://github.com/mongoose-os-libs/rpc-service-config
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-service-config
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-service-config
   init_deps:
   - core
   - rpc-common
   sources:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-service-config/src/mgos_service_config.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-service-config/src/mgos_service_config.c
   version: 2.19.1
   user_version: "1.0"
   repo_version: b30e187977d8dafcb4297cff60e036855a7ff531
 - lib:
     name: rpc-service-fs
     location: https://github.com/mongoose-os-libs/rpc-service-fs
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-service-fs
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-service-fs
   init_deps:
   - core
   - rpc-common
   - vfs-common
   sources:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-service-fs/src/mgos_service_fs.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-service-fs/src/mgos_service_fs.c
   version: 2.19.1
   user_version: "1.0"
   repo_version: 5dea6ee11e623a0e827a750ee75111d9e15ae1b1
 - lib:
     name: rpc-uart
     location: https://github.com/mongoose-os-libs/rpc-uart
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-uart
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-uart
   init_deps:
   - core
   - rpc-common
   sources:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/rpc-uart/src/mgos_rpc_channel_uart.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/rpc-uart/src/mgos_rpc_channel_uart.c
   version: 2.19.1
   user_version: "1.0"
   repo_version: 4c68e5d7b3eecb19ccc6128f111a118384ed20b4
 - lib:
     name: wifi
     location: https://github.com/mongoose-os-libs/wifi
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/wifi
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/wifi
   init_deps:
   - core
   sources:
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/wifi/src/mgos_wifi.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/wifi/src/mjs_wifi.c
-  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/wifi/src/esp32/esp32_wifi.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/wifi/src/mgos_wifi.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/wifi/src/mjs_wifi.c
+  - /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/wifi/src/esp32/esp32_wifi.c
   version: 2.19.1
   user_version: "1.0"
   repo_version: 11a208e7e6df2c47a5b8166a589217157aee9462
 - lib:
     name: zz_boards
     location: https://github.com/mongoose-os-libs/boards
-  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_091698127/deps/boards
+  path: /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_144360098/deps/boards
   version: 2.19.1
   repo_version: 90312821601d8ae5d173829141a4f5057b95c8cb
 init_deps:

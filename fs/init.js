@@ -282,7 +282,7 @@ Timer.set(1000, Timer.REPEAT, function () {
     welding_param.actual_time[welding.state - 1] = welding.cur_time;
     welding_param.end_ts = welding_param.begin_ts;
     for (let i = 0; i < welding_param.state_num; i++) {
-      welding_param.end_ts = welding_param.end_ts + welding_param.actual_time[i];
+      welding_param.end_ts = welding_param.end_ts + welding_param.actual_time[i]*1000;
     }
     welding.state = 10;
     welding.cur_time = 0;
@@ -327,13 +327,24 @@ Timer.set(1000, Timer.REPEAT, function () {
     }
 
     //ИНДИКАЦИЯ - Давление вне диапазона +-10%
-    if (welding.pressure < welding_param.sp_pressure[welding.state - 1] * 0.9 || welding.pressure > welding_param.sp_pressure[welding.state - 1] * 1.1) {
-      welding.alert[0] = 1;
-      led_Ind[0] = blink;
+    if (welding.state === 2) {
+      if (welding.pressure > welding_param.sp_pressure[welding.state - 1]) {
+        welding.alert[0] = 1;
+        led_Ind[0] = blink;
+      } else {
+        welding.alert[0] = 0;
+        led_Ind[0] = 0;
+      }
     } else {
-      welding.alert[0] = 0;
-      led_Ind[0] = 0;
+      if (welding.pressure < welding_param.sp_pressure[welding.state - 1] * 0.9 || welding.pressure > welding_param.sp_pressure[welding.state - 1] * 1.1) {
+        welding.alert[0] = 1;
+        led_Ind[0] = blink;
+      } else {
+        welding.alert[0] = 0;
+        led_Ind[0] = 0;
+      }
     }
+    
 
   } else {
     welding.alert[1] = 0;
