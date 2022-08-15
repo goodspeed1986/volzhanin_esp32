@@ -15,7 +15,7 @@ RPC.call(RPC.LOCAL, 'Sys.GetInfo', null, function (resp) {
   fw_version = resp.fw_version;
 }, null);
 let emulator = 0;
-let led_Ind = [0, 1, 0, 0]; //"alarm", "battery", "button", "ble"
+let led_Ind = [0, 1, 0, 0]; //alarm, battery, ble, button
 Led.set_ind_led(led_Ind);
 Led.set_state_led(0);
 
@@ -73,7 +73,9 @@ Sensors.init();
 /*let f = ffi('double sum(double, double)');
 print('Calling C sum:', f(1, 2));
 
-let f1 = ffi('char *foo(struct mg_str *)');*/
+let f1 = ffi('char *foo(struct mg_str *)');
+let disconnect = ffi('bool mgos_bt_gatts_disconnect(void *)');*/
+
 
 function getRandom(min, max) {
   let random = Math.random() * (max - min) + min;
@@ -213,11 +215,13 @@ GATTS.registerService(
         //activate update state {cmd:2, update:1}
         if (settings_params.cmd === 2) {
           if (settings_params.update === 1) {
-            Cfg.set({ wifi: { ap: { enable: true } } });
-            Sys.reboot(500);
-          } else {
-            Cfg.set({ wifi: { ap: { enable: false } } });
-            Sys.reboot(500);
+            if (updateMode === 0) {
+              Cfg.set({ wifi: { ap: { enable: true } } });
+              Sys.reboot(500);
+            } else {
+              Cfg.set({ wifi: { ap: { enable: false } } });
+              Sys.reboot(500);
+            } 
           }
         }
         //activate emulator {cmd:1, emulator:1}
@@ -315,11 +319,11 @@ Timer.set(1000, Timer.REPEAT, function () {
       } else {
         GPIO.write(Buzzer, 0);
       }
-      led_Ind[2] = blink;
+      led_Ind[3] = blink;
     } else {
       welding.alert[1] = 0;
       GPIO.write(Buzzer, 0);
-      led_Ind[2] = 0;
+      led_Ind[3] = 0;
     }
     // Пищалка постоянно пищит при необходимости действия на этапе Прогрева
     if (welding.state === 2 && welding.cur_time > welding_param.state_time[welding.state - 1]-2) {
@@ -348,7 +352,7 @@ Timer.set(1000, Timer.REPEAT, function () {
 
   } else {
     welding.alert[1] = 0;
-    led_Ind[2] = 0;
+    led_Ind[3] = 0;
     GPIO.write(Buzzer, 0);
     welding.alert[0] = 0;
     led_Ind[0] = 0;
@@ -356,12 +360,12 @@ Timer.set(1000, Timer.REPEAT, function () {
 
   //ИНДИКАЦИЯ - подключения BLE клиента и включение режима обновления
   if (updateMode === 1) {
-    led_Ind[3] = blink;
+    led_Ind[2] = blink;
   } else {
     if (ble_conn === 1) {
-      led_Ind[3] = 1;
+      led_Ind[2] = 1;
     } else {
-      led_Ind[3] = 0;
+      led_Ind[2] = 0;
     }
   }
 
