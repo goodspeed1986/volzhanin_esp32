@@ -11,6 +11,7 @@ load('sensors.js');
 let updateMode = 0;
 if (Cfg.get('wifi.ap.enable')) { updateMode = 1; } else { updateMode = 0; }
 let fw_version = "";
+let serialnumber = Cfg.get('serialnumber');
 RPC.call(RPC.LOCAL, 'Sys.GetInfo', null, function (resp) {
   fw_version = resp.fw_version;
 }, null);
@@ -73,8 +74,8 @@ Sensors.init();
 /*let f = ffi('double sum(double, double)');
 print('Calling C sum:', f(1, 2));
 
-let f1 = ffi('char *foo(struct mg_str *)');
-let disconnect = ffi('bool mgos_bt_gatts_disconnect(void *)');*/
+let f1 = ffi('char *foo(struct mg_str *)');*/
+//let disconnect = ffi('bool mgos_bt_gatts_disconnect(void *)');
 
 
 function getRandom(min, max) {
@@ -111,10 +112,10 @@ GATTS.registerService(
         }
         GATTS.sendRespData(c, arg, str1);
         print("Chunk=" + str1);
-        print("Offset", arg.offset+arch_welding.offset);
+        print("Offset", arg.offset + arch_welding.offset);
 
         //READ CURRENT STATE FROM DEVICE (welding_param)
-        //10;1656866475533;36;5.4;0;32.4;36;0;3;541;20;23;4378;0;3;3;2;2;3;0;1656866475533;1656866488533;"55.7700796 49.2454783 03-07-2022 19:40:51"
+        //10;1656866475533;36;5.4;0;32.4;36;0;3;541;20;23;4378;0;3;3;2;2;3;0;1656866475533;1656866488533;"55.7700796 49.2454783 03-07-2022 19:40:51;1234567890"
       } else if (arg.uuid === "4e75c6fe-d008-49f2-b182-fe231eed747c") {
         
         let str2;
@@ -132,17 +133,20 @@ GATTS.registerService(
         }
         str2 = str2 + JSON.stringify(welding_param.begin_ts) + ";";
         str2 = str2 + JSON.stringify(welding_param.end_ts) + ";";
-        str2 = str2 + welding_param.gps;
-        print("current_params", str2);
+        str2 = str2 + welding_param.gps + ";";
+        str2 = str2 + serialnumber;
+        print("welding_params", str2);
         GATTS.sendRespData(c, arg, str2);
-        //READ CURRENT PARAMETERS OF DEVICE (updateMode, fw_version,  emulator, Sensor params)
-        //1;1.2;0;4;20;0;60
+        //READ CURRENT PARAMETERS OF DEVICE (updateMode, fw_version,  emulator, Sensor params, Serial Number)
+        //1;1.2;0;4;20;0;60;1234567890
       } else if (arg.uuid === "c2232013-e3e9-4e3c-8a62-7e708dc0cbbc") {
         let str3 = "";
         str3 = JSON.stringify(updateMode) + ";";
         str3 = str3 + fw_version + ";";
         str3 = str3 + JSON.stringify(emulator) + ";";
-        str3 = str3 + JSON.stringify(Sensors.p_in_min) + ";" + JSON.stringify(Sensors.p_in_max) + ";" + JSON.stringify(Sensors.p_out_min) + ";" + JSON.stringify(Sensors.p_out_max);
+        str3 = str3 + JSON.stringify(Sensors.p_in_min) + ";" + JSON.stringify(Sensors.p_in_max) + ";" + JSON.stringify(Sensors.p_out_min) + ";" + JSON.stringify(Sensors.p_out_max) + ";";
+        str3 = str3 + serialnumber;
+        print("device_params", str3);
         GATTS.sendRespData(c, arg, str3);
       }
       return GATT.STATUS_OK;
@@ -218,17 +222,20 @@ GATTS.registerService(
             if (updateMode === 0) {
               Cfg.set({ wifi: { ap: { enable: true } } });
               Sys.reboot(500);
-            } else {
+            } 
+          }
+          if (settings_params.update === 0) {
+            if (updateMode === 1) {
               Cfg.set({ wifi: { ap: { enable: false } } });
               Sys.reboot(500);
-            } 
+            }
           }
         }
         //activate emulator {cmd:1, emulator:1}
         if (settings_params.cmd === 1) {
           emulator = settings_params.emulator;
         }
-        //sensor param {cmd:0, sensors: {p_out_min:0, p_out_max:16, p_in_min:4, p_in_max:20}}
+        //sensor param {cmd:0, sensors: {p_out_min:0, p_out_max:16, p_in_min:4, p_in_max:20}, serialnumber: "1234567890"}
         if (settings_params.cmd === 0) {
           Sensors.p_out_min = settings_params.sensors.p_out_min;
           Sensors.p_out_max = settings_params.sensors.p_out_max;
@@ -236,6 +243,8 @@ GATTS.registerService(
           Sensors.p_in_max = settings_params.sensors.p_in_max;
           Cfg.set({ sensors: { p_out_min: Sensors.p_out_min, p_out_max: Sensors.p_out_max, p_in_min: Sensors.p_in_min, p_in_max: Sensors.p_in_max } });
           Sensors.init();
+          serialnumber = settings_params.serialnumber; 
+          Cfg.set({ serialnumber: serialnumber});
         }
         print("settings_params", JSON.stringify(settings_params));
       }

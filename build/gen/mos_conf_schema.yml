@@ -551,3 +551,7 @@
   - i
   - 20
   - title: Maximum IN Pressure signal
+- - serialnumber
+  - s
+  - "123456789"
+  - title: Serial number

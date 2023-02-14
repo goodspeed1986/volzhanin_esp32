@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_2255193669/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_2255193669/build/gen/mos_conf_schema.yml
+ * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_2422190851/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/latest/apps/volzhanin_esp32/esp32/build_contexts/build_ctx_2422190851/build/gen/mos_conf_schema.yml
  */
 
 #pragma once
@@ -711,6 +711,7 @@ struct mgos_config {
   struct mgos_config_wifi wifi;
   struct mgos_config_board board;
   struct mgos_config_sensors sensors;
+  const char * serialnumber;
 };
 const struct mgos_conf_entry *mgos_config_get_schema(void);
 void mgos_config_set_defaults(struct mgos_config *cfg);
@@ -2472,6 +2473,16 @@ static inline int mgos_sys_config_get_sensors_p_in_max(void) { return mgos_confi
 static inline int mgos_sys_config_get_default_sensors_p_in_max(void) { return mgos_config_get_default_sensors_p_in_max(); }
 void mgos_config_set_sensors_p_in_max(struct mgos_config *cfg, int v);
 static inline void mgos_sys_config_set_sensors_p_in_max(int v) { mgos_config_set_sensors_p_in_max(&mgos_sys_config, v); }
+
+/* serialnumber */
+#define MGOS_CONFIG_HAVE_SERIALNUMBER
+#define MGOS_SYS_CONFIG_HAVE_SERIALNUMBER
+const char * mgos_config_get_serialnumber(const struct mgos_config *cfg);
+const char * mgos_config_get_default_serialnumber(void);
+static inline const char * mgos_sys_config_get_serialnumber(void) { return mgos_config_get_serialnumber(&mgos_sys_config); }
+static inline const char * mgos_sys_config_get_default_serialnumber(void) { return mgos_config_get_default_serialnumber(); }
+void mgos_config_set_serialnumber(struct mgos_config *cfg, const char * v);
+static inline void mgos_sys_config_set_serialnumber(const char * v) { mgos_config_set_serialnumber(&mgos_sys_config, v); }
 
 bool mgos_sys_config_get(const struct mg_str key, struct mg_str *value);
 bool mgos_sys_config_set(const struct mg_str key, const struct mg_str value, bool free_strings);

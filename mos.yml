@@ -1,7 +1,8 @@
 author: mongoose-os
 description: A Mongoose OS app skeleton
-version: 1.14
-
+version: 1.15
+#2.19.1
+#${mos.version}
 libs_version: 2.19.1
 modules_version: 2.19.1
 mongoose_os_version: 2.19.1
@@ -77,6 +78,7 @@ config_schema:
   - ["sensors.p_out_max", "i", 60, {title: "Maximum OUT Pressure"}]
   - ["sensors.p_in_min", "i", 4, {title: "Minimum IN Pressure signal"}]
   - ["sensors.p_in_max", "i", 20, {title: "Maximum IN Pressure signal"}]
+  - ["serialnumber", "s", "123456789", {title: "Serial number"}]
 
   #- ["wifi.sta.enable", true]
   #- ["wifi.sta.ssid", "ASUS"]
